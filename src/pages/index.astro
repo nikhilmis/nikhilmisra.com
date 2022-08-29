@@ -1,102 +1,215 @@
 ---
 import { Image, Picture } from '@astrojs/image/components';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import field from '../images/field.png';
 import goodslogo from '../images/goodslogo.svg';
+import Paragraph from '../components/Paragraph.astro';
+
+let isBioExpanded = false;
+
+const expandedBioStyle = (isBioExpanded: boolean) =>
+    `max-height: ${isBioExpanded ? '500px' : 0}; opacity: ${
+        isBioExpanded ? 1 : 0
+    }`;
+
+const expandBioHandler = () => {
+    isBioExpanded = !isBioExpanded;
+};
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-        <img src={goodslogo} />
-        <Image src={field} />
-        <Picture src={field} widths={[200, 400, 800]} sizes="(max-width: 800px) 100vw, 800px" alt="A rocket blasting off." />
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="nikhilmisra.com">
+    <div class="bodyWrapper">
+        <header class="grid">
+            <div class="bio">
+                <Paragraph>
+                    My name is <span class="underlined animated-underline"
+                        >Nikhil Misra</span
+                    >. I'm a designer and artist focusing on design systems,
+                    identities, editorial, interaction, and interesting ideas.
+                </Paragraph>
+                <div
+                    class="expanded-bio"
+                    style={expandedBioStyle(isBioExpanded)}
+                >
+                    <Paragraph indented={true}>
+                        Currently, I am a Product Designer at
+                        <a href="https://www.hearst.com/newspapers"
+                            >Hearst Newspapers</a
+                        >. Previously I was with the very talented people at
+                        <a href="https://oak.is/">Oak Studios</a>. I hold an MPS
+                        in Communication Design from Parsons School of Design
+                        and a BFA in Graphic Design from SUNY Purchase College.
+                        I also participated in the
+                        <a href="http://www.typographysummerschool.org/"
+                            >Typography Summer School</a
+                        >
+                        program in London.
+                    </Paragraph>
+                    <Paragraph indented={true}>
+                        You can usually find me taking photos,
+                        <a
+                            href="https://www.are.na/nikhil-misra/tracks-for-life"
+                            >music</a
+                        >, or learning something new. These days I spend time
+                        learning generative image making, type design, and
+                        making music.
+                    </Paragraph>
+                    <Paragraph indented={true}>
+                        I also spend time thinking about alternative education
+                        models and how to make creative careers more accessible
+                        to BIPOC youth. If you are interested in talking about
+                        that, please reach out.
+                    </Paragraph>
+                </div>
+                <button
+                    class="animated-underline"
+                    aria-expanded={isBioExpanded}
+                >
+                    {
+                        isBioExpanded
+                            ? '(Hide information...)'
+                            : '(...More Information)'
+                    }
+                </button>
+            </div>
+            <div class="expanded-bio" style={expandedBioStyle(isBioExpanded)}>
+                <p>
+                    Typeset in Gerstner Programm by
+                    <a href="https://forgotten-shapes.com/">Forgotten Shapes</a
+                    >.
+                </p>
+                <p>
+                    Designed and developed by me along with
+                    <a href="https://github.com/OleSkaar">Ole Skaar</a>.
+                </p>
+                <p>Last Updated: January 12th, 2021</p>
+            </div>
+            <div>
+                <p class="birthday">
+                    (B.1991), raised, and living in New York.
+                </p>
+                <p class="socials-text">Catch me elsewhere:</p>
+                <p>
+                    <a href="/">Email</a>,
+                    <a href="/">Instagram</a>,
+                    <a href="/">Are.na</a>,
+                    <a href="/">LinkedIn</a>
+                </p>
+            </div>
+        </header>
+
+        <!-- <main>
+            <Work
+                projects={[
+                    {
+                        link: 'goods',
+                        title: 'Goods',
+                        keywords: 'Design System, Reader Experience',
+                        year: '2019 - Present',
+                        asset: {
+                            type: 'Image',
+                            src: '/img/goods/goodsmockup.png',
+                            alt: 'Goods homepage',
+                        },
+                    },
+                    {
+                        link: 'unfold',
+                        title: 'Unfold',
+                        keywords: 'Identity, Design System',
+                        year: '2017',
+                        asset: {
+                            type: 'Video',
+                            src: '/img/unfold/unfoldwebsite.mp4',
+                        },
+                    },
+                    {
+                        link: 'inydsr',
+                        title: 'Is The New York Dream Still Real?',
+                        keywords: 'Data Visualization, Installation, AR',
+                        year: '2017',
+                        asset: {
+                            type: 'Image',
+                            src: '/img/itnydsr/showcase.jpg',
+                            alt: 'INYDSR showcase',
+                        },
+                    },
+                    {
+                        link: 'misc',
+                        title: 'Misc.',
+                        keywords: 'Posters, Typefaces In Progress',
+                        year: '2016 - ???',
+                        asset: {
+                            type: 'Image',
+                            src: '/img/posters/lordraja_forwebsite.png',
+                            alt: 'Lord Raja poster.',
+                        },
+                    },
+                ]}
+            />
+        </main> -->
+    </div>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
+    html {
+        background-color: var(--black);
+        color: var(--white);
+    }
 
-	h1 {
-		margin: 2rem 0;
-	}
+    :global(.grid) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 100px;
+    }
 
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
+    header {
+        --expand-transition: 0.25s cubic-bezier(0.36, 0, 0.66, -0.56);
+    }
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
+    header p {
+        margin: 0 0 var(--margin-space) 0;
+    }
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
+    header button {
+        margin-top: 25px;
+        cursor: pointer;
+    }
 
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
+    @media only screen and (min-width: 960px) {
+        :global(.grid > *:last-child) {
+            text-align: right;
+        }
+    }
 
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
+    @media only screen and (min-width: 0px) and (max-width: 960px) {
+        :global(.grid) {
+            gap: 0;
+        }
 
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+        header button {
+            margin-bottom: 25px;
+        }
+
+        header.grid {
+            grid-template-columns: 1fr;
+        }
+
+        .birthday {
+            display: none;
+        }
+
+        .socials-text {
+            margin-bottom: 0;
+        }
+    }
+
+    .bodyWrapper {
+        padding: 25px;
+    }
+
+    .expanded-bio {
+        overflow: hidden;
+        transition: max-height var(--expand-transition),
+            opacity var(--expand-transition);
+    }
 </style>

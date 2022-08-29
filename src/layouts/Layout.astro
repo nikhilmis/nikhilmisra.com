@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
@@ -8,49 +8,138 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <slot />
+        <style is:global>
+            *:where(:not(html, iframe, canvas, img, svg, video):not(svg
+                        *, symbol *)) {
+                all: unset;
+                display: revert;
+            }
+
+            /* Preferred box-sizing value */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            /* Reapply the pointer cursor for anchor tags */
+            a,
+            button {
+                cursor: revert;
+            }
+
+            /* Remove list styles (bullets/numbers) */
+            ol,
+            ul,
+            menu {
+                list-style: none;
+            }
+
+            /* For images to not be able to exceed their container */
+            img {
+                max-width: 100%;
+            }
+
+            /* removes spacing between cells in tables */
+            table {
+                border-collapse: collapse;
+            }
+
+            /* revert the 'white-space' property for textarea elements on Safari */
+            textarea {
+                white-space: revert;
+            }
+
+            /* minimum style to allow to style meter element */
+            meter {
+                -webkit-appearance: revert;
+                appearance: revert;
+            }
+
+            /* reset default text opacity of input placeholder */
+            ::placeholder {
+                color: unset;
+            }
+
+            /* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+            :where([hidden]) {
+                display: none;
+            }
+
+            /* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly. */
+            :where([contenteditable]) {
+                -moz-user-modify: read-write;
+                -webkit-user-modify: read-write;
+                overflow-wrap: break-word;
+                -webkit-line-break: after-white-space;
+            }
+
+            /* apply back the draggable feature - exist only in Chromium and Safari */
+            :where([draggable='true']) {
+                -webkit-user-drag: element;
+            }
+
+            /* Global styles */
+
+            @font-face {
+                font-family: 'GerstnerProgramm';
+                src: url('./../fonts/GerstnerProgrammRegular.otf');
+            }
+
+            @font-face {
+                font-family: 'GerstnerProgrammItalic';
+                src: url('./../fonts/GerstnerProgrammRegularItalic.otf');
+            }
+
+            body {
+                font-family: 'GerstnerProgramm', sans-serif;
+                font-size: 22px;
+                line-height: 28px;
+                letter-spacing: 0.2px;
+            }
+
+            /* Global variables */
+            :root {
+                --black: #000;
+                --white: #fff;
+                --offwhite: #fefcf7;
+                --blur-text-shadow: 0 0 5px;
+                --blur-text-opacity: 0.5;
+                --margin-space: 22px;
+            }
+
+            /* Blur effect */
+            .blur {
+                color: transparent;
+            }
+
+            .blur a,
+            .blur * a {
+                color: transparent;
+            }
+
+            .blur ::after,
+            .blur img {
+                filter: blur(3px);
+            }
+
+            /* Underline effect */
+            a,
+            button,
+            .underlined {
+                position: relative;
+            }
+        </style>
+    </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-	:global(h1) {
-		font-size: var(--font-size-xl);
-	}
-
-	:global(h2) {
-		font-size: var(--font-size-lg);
-	}
-
-	:global(code) {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
