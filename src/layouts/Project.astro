@@ -3,13 +3,42 @@ import Layout from '../layouts/Layout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={`${frontmatter.title} | nikhilmisra.com`}>
+    <header>
+        <a class="animated-underline" href="/">Nikhil Misra</a>
+    </header>
     <main>
         <slot />
     </main>
 </Layout>
 
 <style>
+    body {
+        background-color: var(--offwhite);
+        color: var(--black);
+    }
+
+    header {
+        mix-blend-mode: exclusion;
+        color: var(--white);
+        z-index: 1;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 25px;
+    }
+
+    ::selection {
+        color: var(--white);
+        background-color: var(--black);
+    }
+
+    .blur {
+        text-shadow: var(--blur-text-shadow)
+            rgba(0, 0, 0, var(--blur-text-opacity));
+    }
+
     main {
         max-width: 1920px;
         margin: 25px auto 0 auto;

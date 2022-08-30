@@ -1,0 +1,19 @@
+---
+import { Picture } from '@astrojs/image/components';
+
+export interface Props {
+    src: ImageMetadata;
+    alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<Picture class='picture' src={src} alt={alt} widths={[400, 800, 1920]} sizes="(max-width: 1920px) 100vw, 1920px" />
+
+<style>
+    .picture :global(img) {
+        width: 100%;
+        height: auto;
+    }
+</style>

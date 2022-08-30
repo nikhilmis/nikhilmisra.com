@@ -2,22 +2,28 @@
 layout: ../../layouts/Project.astro
 title: Goods
 keywords: Design System, Reader Experience
+year: 2019 - Present
 ---
 
-import Hero from '../../components/Hero.astro';
 import ProjectInfo from '../../components/ProjectInfo.astro';
-export const components = { hero: Hero, projectInfo: ProjectInfo };
+import Hero from '../../components/Hero.astro';
+import Text from '../../components/Text.astro';
+import Img from '../../components/Img.astro';
 
-<Hero />
+export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+
+<Hero src={import('../../images/goods/goodslogo.png')} />
 <ProjectInfo
     title={frontmatter.title}
     subheading={'Identity, Product Design'}
     duration={'15 weeks'}
 >
-    Goods. is new way to fund non-profit organizations. Goods is. a non-profit
-    marketplace where people can buy and sell clothing items. With each item you
-    buy, Goods. takes 10% percent of the purchase and donate it to a non-profit
-    partner. Goods. partners with different organizations every 2-3 months to
-    maximize social impact.
+    <Text>
+        Goods. is new way to fund non-profit organizations. Goods is. a
+        non-profit marketplace where people can buy and sell clothing items.
+        With each item you buy, Goods. takes 10% percent of the purchase and
+        donate it to a non-profit partner. Goods. partners with different
+        organizations every 2-3 months to maximize social impact.
+    </Text>
 </ProjectInfo>
-
+<Img src={import('../../images/goods/goodsfull.png')} alt='Screenshot of the Goods. website' />
