@@ -1,9 +1,7 @@
 ---
 import { Image, Picture } from '@astrojs/image/components';
 import Layout from '../layouts/Layout.astro';
-import field from '../images/field.png';
-import goodslogo from '../images/goodslogo.svg';
-import Paragraph from '../components/Paragraph.astro';
+import Text from '../components/Text.astro';
 
 let isBioExpanded = false;
 
@@ -21,17 +19,17 @@ const expandBioHandler = () => {
     <div class="bodyWrapper">
         <header class="grid">
             <div class="bio">
-                <Paragraph>
+                <Text>
                     My name is <span class="underlined animated-underline"
                         >Nikhil Misra</span
                     >. I'm a designer and artist focusing on design systems,
                     identities, editorial, interaction, and interesting ideas.
-                </Paragraph>
+                </Text>
                 <div
                     class="expanded-bio"
                     style={expandedBioStyle(isBioExpanded)}
                 >
-                    <Paragraph indented={true}>
+                    <Text indented={true}>
                         Currently, I am a Product Designer at
                         <a href="https://www.hearst.com/newspapers"
                             >Hearst Newspapers</a
@@ -44,8 +42,8 @@ const expandBioHandler = () => {
                             >Typography Summer School</a
                         >
                         program in London.
-                    </Paragraph>
-                    <Paragraph indented={true}>
+                    </Text>
+                    <Text indented={true}>
                         You can usually find me taking photos,
                         <a
                             href="https://www.are.na/nikhil-misra/tracks-for-life"
@@ -53,13 +51,13 @@ const expandBioHandler = () => {
                         >, or learning something new. These days I spend time
                         learning generative image making, type design, and
                         making music.
-                    </Paragraph>
-                    <Paragraph indented={true}>
+                    </Text>
+                    <Text indented={true}>
                         I also spend time thinking about alternative education
                         models and how to make creative careers more accessible
                         to BIPOC youth. If you are interested in talking about
                         that, please reach out.
-                    </Paragraph>
+                    </Text>
                 </div>
                 <button
                     class="animated-underline"

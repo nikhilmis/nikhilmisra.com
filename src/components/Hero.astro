@@ -1,0 +1,22 @@
+---
+import { Image } from '@astrojs/image/components';
+
+const { src, alt, backgroundColor = 'offwhite'} = Astro.props;
+---
+
+<div style={`background-color: var(--${backgroundColor})`}>
+    {src && <Image src={src} alt={alt} />}
+</div>
+
+<style>
+    div {
+        width: 100%;
+        padding: 50px 0 50px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    img, div {
+        height: 250px;
+    }
+</style>
