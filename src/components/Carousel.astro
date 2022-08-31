@@ -1,0 +1,65 @@
+---
+import CarouselCore from './CarouselCore.svelte';
+import Img from './Img.astro';
+import { imageId, imageAnchor } from '../utils/link-handling';
+
+interface Image {
+    src: ImageMetadata;
+    alt: string;
+}
+
+export interface Props {
+    uniqueTitle: string;
+    images: Image[];
+}
+
+const { uniqueTitle, images } = Astro.props;
+const selectedClass = 'selected';
+---
+
+<CarouselCore images={images.length} uniqueTitle={uniqueTitle} selectedClass={selectedClass} client:load>
+    <span slot="images">
+        <div>
+            {images.map((image, index) => (
+                <Img className="image" src={image.src} alt={image.alt} id={imageId(uniqueTitle, index)} />
+            ))}
+        </div>
+    </span>
+
+    <span slot="anchors">
+        <nav>
+            {images.map((_, index) => (
+                <a class={index === 0 ? selectedClass : ''} href={imageAnchor(uniqueTitle, index)}>•</a>
+            ))}
+        </nav>
+    </span>
+</CarouselCore>
+
+<style>
+    div {
+        display: flex;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        overflow: hidden;
+    }
+
+    nav {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 48px;
+        color: grey;
+    }
+
+    nav a.selected {
+        color: black;
+    }
+
+    .image {
+        width: 100%;
+        flex-shrink: 0;
+    }
+</style>

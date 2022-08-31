@@ -9,6 +9,7 @@ import ProjectInfo from '../../components/ProjectInfo.astro';
 import Hero from '../../components/Hero.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
+import Carousel from '../../components/Carousel.astro';
 
 export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
@@ -26,4 +27,16 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
         organizations every 2-3 months to maximize social impact.
     </Text>
 </ProjectInfo>
-<Img src={import('../../images/goods/goodsfull.png')} alt='Screenshot of the Goods. website' />
+<Img
+    src={import('../../images/goods/goodsfull.png')}
+    alt="Screenshot of the Goods. website"
+    lazy={false}
+/>
+<Carousel
+    uniqueTitle={'process'}
+    images={[
+        { src: import('../../images/goods/me.png'), alt: 'Me' },
+        { src: import('../../images/goods/postits.png'), alt: 'Postits' },
+        { src: import('../../images/goods/field.png'), alt: 'In the field.' },
+    ]}
+/>

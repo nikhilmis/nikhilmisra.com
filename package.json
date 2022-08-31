@@ -19,6 +19,7 @@
     "prettier-plugin-astro": "^0.5.3"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.10.3"
+    "@astrojs/mdx": "^0.10.3",
+    "@astrojs/svelte": "^1.0.0"
   }
 }

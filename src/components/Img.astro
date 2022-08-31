@@ -4,12 +4,24 @@ import { Picture } from '@astrojs/image/components';
 export interface Props {
     src: ImageMetadata;
     alt: string;
+    className?: string;
+    id?: string;
+    lazy?: boolean;
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, className, id = null, lazy = true } = Astro.props;
+const modifiedClassName = `${className ? className + ' ' : ''}picture`;
 ---
 
-<Picture class='picture' src={src} alt={alt} widths={[400, 800, 1920]} sizes="(max-width: 1920px) 100vw, 1920px" />
+<Picture
+    id={id}
+    class={modifiedClassName}
+    src={src}
+    alt={alt}
+    widths={[400, 800, 1920]}
+    sizes="(max-width: 1920px) 100vw, 1920px"
+    loading={lazy ? 'lazy' : 'eager'}
+/>
 
 <style>
     .picture :global(img) {
