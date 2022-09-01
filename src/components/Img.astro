@@ -2,7 +2,7 @@
 import { Picture } from '@astrojs/image/components';
 
 export interface Props {
-    src: ImageMetadata;
+    src: ImageMetadata | Promise<any>;
     alt: string;
     className?: string;
     id?: string;

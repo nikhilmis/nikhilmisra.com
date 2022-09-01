@@ -10,44 +10,6 @@ const { frontmatter } = Astro.props;
     <main>
         <slot />
     </main>
+
+    <link rel="stylesheet" href="/project.css" />
 </Layout>
-
-<style>
-    body {
-        background-color: var(--offwhite);
-        color: var(--black);
-    }
-
-    header {
-        mix-blend-mode: exclusion;
-        color: var(--white);
-        z-index: 1;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 25px;
-    }
-
-    ::selection {
-        color: var(--white);
-        background-color: var(--black);
-    }
-
-    .blur {
-        text-shadow: var(--blur-text-shadow)
-            rgba(0, 0, 0, var(--blur-text-opacity));
-    }
-
-    main {
-        max-width: 1920px;
-        margin: 25px auto 0 auto;
-        background: var(--offwhite);
-    }
-
-    @media only screen and (max-width: 1920px) {
-        main {
-            margin: 0 25px;
-        }
-    }
-</style>

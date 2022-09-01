@@ -1,0 +1,9 @@
+---
+const projects = await Astro.glob('../pages/work/*.mdx').then((value) =>
+    value.map((p) => {
+        const { frontmatter, url } = p;
+
+        return { ...frontmatter, url };
+    })[0]
+);
+---

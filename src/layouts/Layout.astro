@@ -4,6 +4,8 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+import '../global.css';
 ---
 
 <!DOCTYPE html>
@@ -11,135 +13,11 @@ const { title } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
     <body>
         <slot />
-        <style is:global>
-            *:where(:not(html, iframe, canvas, img, svg, video):not(svg
-                        *, symbol *)) {
-                all: unset;
-                display: revert;
-            }
-
-            /* Preferred box-sizing value */
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-
-            /* Reapply the pointer cursor for anchor tags */
-            a,
-            button {
-                cursor: revert;
-            }
-
-            /* Remove list styles (bullets/numbers) */
-            ol,
-            ul,
-            menu {
-                list-style: none;
-            }
-
-            /* For images to not be able to exceed their container */
-            img {
-                max-width: 100%;
-            }
-
-            /* removes spacing between cells in tables */
-            table {
-                border-collapse: collapse;
-            }
-
-            /* revert the 'white-space' property for textarea elements on Safari */
-            textarea {
-                white-space: revert;
-            }
-
-            /* minimum style to allow to style meter element */
-            meter {
-                -webkit-appearance: revert;
-                appearance: revert;
-            }
-
-            /* reset default text opacity of input placeholder */
-            ::placeholder {
-                color: unset;
-            }
-
-            /* fix the feature of 'hidden' attribute.
- display:revert; revert to element instead of attribute */
-            :where([hidden]) {
-                display: none;
-            }
-
-            /* revert for bug in Chromium browsers
- - fix for the content editable attribute will work properly. */
-            :where([contenteditable]) {
-                -moz-user-modify: read-write;
-                -webkit-user-modify: read-write;
-                overflow-wrap: break-word;
-                -webkit-line-break: after-white-space;
-            }
-
-            /* apply back the draggable feature - exist only in Chromium and Safari */
-            :where([draggable='true']) {
-                -webkit-user-drag: element;
-            }
-
-            /* Global styles */
-
-            @font-face {
-                font-family: 'GerstnerProgramm';
-                src: url('./../fonts/GerstnerProgrammRegular.otf');
-            }
-
-            @font-face {
-                font-family: 'GerstnerProgrammItalic';
-                src: url('./../fonts/GerstnerProgrammRegularItalic.otf');
-            }
-
-            body {
-                font-family: 'GerstnerProgramm', sans-serif;
-                font-size: 22px;
-                line-height: 28px;
-                letter-spacing: 0.2px;
-            }
-
-            /* Global variables */
-            :root {
-                --black: #000;
-                --white: #fff;
-                --offwhite: #fefcf7;
-                --blur-text-shadow: 0 0 5px;
-                --blur-text-opacity: 0.5;
-                --margin-space: 22px;
-            }
-
-            /* Blur effect */
-            .blur {
-                color: transparent;
-            }
-
-            .blur a,
-            .blur * a {
-                color: transparent;
-            }
-
-            .blur ::after,
-            .blur img {
-                filter: blur(3px);
-            }
-
-            /* Underline effect */
-            a,
-            button,
-            .underlined {
-                position: relative;
-            }
-        </style>
     </body>
 </html>
