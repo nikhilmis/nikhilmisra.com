@@ -2,10 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
-import Work from '../components/Work.astro';
-import WorkItem from '../components/WorkItem.svelte';
 import Img from '../components/Img.astro';
-
+import WorkItem from '../components/WorkItem.svelte';
 ---
 
 <Layout title="nikhilmisra.com">
@@ -13,10 +11,9 @@ import Img from '../components/Img.astro';
         <Header client:idle>
             <span slot="bio">
                 <Text>
-                    My name is
-                    <span>Nikhil Misra</span>. I'm a designer and artist
-                    focusing on design systems, identities, editorial,
-                    interaction, and interesting ideas.
+                    My name is Nikhil Misra. I'm a designer and artist focusing
+                    on design systems, identities, editorial, interaction, and
+                    interesting ideas.
                 </Text>
             </span>
             <span slot="expanded-bio">
@@ -73,26 +70,67 @@ import Img from '../components/Img.astro';
             </span>
         </Header>
 
-        <Work>
-            <WorkItem project={{
-                title: 'Goods',
-                url: '/work/goods',
-                keywords: 'Design System, Reader Experience',
-                year: '2019 - Present',
-            }}>
-                <Img src={import('../images/goods/goodsmockup.png')} alt="" />
+        <ul class="work">
+            <WorkItem
+                project={{
+                    title: 'Goods',
+                    url: '/work/goods',
+                    keywords: 'Design System, Reader Experience',
+                    year: '2019 - Present',
+                }}
+                client:idle
+            >
+                <Img
+                    src={import('../images/goods/goodsmockup.png')}
+                    alt="Goods mockup"
+                />
             </WorkItem>
-        </Work>
+            <WorkItem
+                project={{
+                    title: 'Goods',
+                    url: '/work/goods',
+                    keywords: 'Design System, Reader Experience',
+                    year: '2019 - Present',
+                    videoId: 'unfold',
+                }}
+                client:idle
+            >
+                <video
+                    id={'unfold'}
+                    loop
+                    muted
+                    src={'/video/unfoldwebsite.mp4'}></video>
+            </WorkItem>
+        </ul>
     </div>
 
     <style>
         body {
             background-color: var(--black);
             color: var(--white);
+            overflow: hidden;
         }
 
         .bodyWrapper {
             padding: 25px;
+        }
+
+        .work {
+            margin-top: 100px;
+        }
+
+        .work :global(a) {
+            transition: filter 0.1s;
+        }
+
+        .work:hover :global(a) {
+            opacity: 0.5;
+            filter: blur(3px);
+        }
+
+        .work :global(a:hover) {
+            opacity: 1;
+            filter: unset;
         }
     </style>
 </Layout>

@@ -1,9 +1,23 @@
 ---
-const projects = await Astro.glob('../pages/work/*.mdx').then((value) =>
-    value.map((p) => {
-        const { frontmatter, url } = p;
-
-        return { ...frontmatter, url };
-    })[0]
-);
+const projects = await Astro.glob('../pages/work/*.mdx');
 ---
+
+<footer>
+    <nav>
+        {
+            projects.map((project) => {
+                return <a href={project.url}>{project.frontmatter.title}</a>;
+            })
+        }
+    </nav>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--black);
+        color: var(--white);
+        min-height: 250px;
+        margin-top: 25px;
+        padding: 50px 0 50px 25px;
+    }
+</style>

@@ -38,10 +38,6 @@
         --expand-transition: 0.25s cubic-bezier(0.36, 0, 0.66, -0.56);
     }
 
-    header p {
-        margin: 0 0 var(--margin-space) 0;
-    }
-
     header button {
         margin-top: 25px;
         cursor: pointer;
