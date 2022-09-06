@@ -1,6 +1,5 @@
 ---
 import SelectionBlurrer from '../components/SelectionBlurrer.svelte';
-import Password from '../components/Password.svelte';
 
 export interface Props {
     title: string;
@@ -21,10 +20,8 @@ import '../global.css';
         <title>{title}</title>
     </head>
     <body>
-        <Password client:load>
-            <slot />
-            <SelectionBlurrer client:idle />
-        </Password>
+        <slot />
+        <SelectionBlurrer client:idle />
         <script
             is:inline
             src="https://unpkg.com/@oakstudios/mechanical-ragger@0.5.0/web-component-auto-register.js"
