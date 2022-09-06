@@ -58,8 +58,14 @@ body {
 }
 
 /* Blur effect */
+::selection {
+    color: var(--black);
+    background-color: var(--white);
+}
+
 .blur {
     color: transparent;
+    text-shadow: var(--blur-text-shadow) rgba(255, 255, 255, var(--blur-text-opacity));
 }
 
 .blur a,
@@ -70,11 +76,4 @@ body {
 .blur ::after,
 .blur img {
     filter: blur(3px);
-}
-
-/* Underline effect */
-a,
-button,
-.underlined {
-    position: relative;
 }
