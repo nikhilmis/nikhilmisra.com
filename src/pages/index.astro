@@ -87,10 +87,10 @@ import WorkItem from '../components/WorkItem.svelte';
             </WorkItem>
             <WorkItem
                 project={{
-                    title: 'Goods',
-                    url: '/work/goods',
-                    keywords: 'Design System, Reader Experience',
-                    year: '2019 - Present',
+                    title: 'Unfold',
+                    url: '/work/unfold',
+                    keywords: 'Identity, Design, System',
+                    year: '2018',
                     videoId: 'unfold',
                 }}
                 client:idle
@@ -123,7 +123,7 @@ import WorkItem from '../components/WorkItem.svelte';
             transition: filter 0.1s;
         }
 
-        .work:hover :global(a) {
+        .work.hover :global(a) {
             opacity: 0.5;
             filter: blur(3px);
         }

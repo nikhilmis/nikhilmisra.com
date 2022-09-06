@@ -17,24 +17,36 @@
 
     let coords = writable({ x: 0, y: 0 });
     const mouseMoveHandler = (e: any) => {
-        coords.set({ x: e.clientX, y: e.clientY })
+        coords.set({ x: e.clientX, y: e.clientY });
     };
 
-    const startVideo = () => {
+    const toggleHover = () => document.querySelector('.work')?.classList.toggle('hover')
+
+    const onMouseEnter = () => {
+        toggleHover();
+
         getVideo().autoplay = true;
+
+        if (getVideo()) {
+            getVideo().autoplay = true;
+        }
     }
-    const endVideoHover = () => {
-        const video = getVideo();
-        video.autoplay = false;
-        video.currentTime = 0;
-    };
+
+    const onMouseLeave = () => {
+        toggleHover();
+
+        if (getVideo()) {
+            getVideo().autoplay = false;
+            getVideo().currentTime = 0;
+        }
+    }
 </script>
 
 <a
     href={project.url}
     on:mousemove={mouseMoveHandler}
-    on:mouseenter={videoId ? startVideo : () => null}
-    on:mouseleave={videoId ? endVideoHover : () => null}
+    on:mouseenter={onMouseEnter}
+    on:mouseleave={onMouseLeave}
 >
     <li class='grid'>
         {#each [title, keywords, year] as text}
@@ -52,7 +64,9 @@
 <style>
     a {
         display: block;
-        padding: 30px 0;
+        margin: 25px 0;
+        padding: 15px 0;
+        position: relative;
     }
 
     a .preview {
@@ -72,9 +86,5 @@
     .grid:hover .underlined.animated-underline:after {
         width: 100%;
         background-color: var(--white);
-    }
-
-    a {
-        transition: filter 0.1s;
     }
 </style>
