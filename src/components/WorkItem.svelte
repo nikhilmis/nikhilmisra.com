@@ -25,8 +25,6 @@
     const onMouseEnter = () => {
         toggleHover();
 
-        getVideo().autoplay = true;
-
         if (getVideo()) {
             getVideo().autoplay = true;
         }
