@@ -7,9 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "postbuild": "pagecrypt ./dist/index.html ./dist/index.html -g 8",
-    "print": "echo Hello $1! && echo Bye $2!"
+    "astro": "astro"
   },
   "devDependencies": {
     "@astrojs/image": "^0.3.6",
