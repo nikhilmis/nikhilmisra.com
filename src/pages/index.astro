@@ -95,11 +95,36 @@ import WorkItem from '../components/WorkItem.svelte';
                 }}
                 client:idle
             >
-                <video
-                    id={'unfold'}
-                    loop
-                    muted
-                    src={'/video/unfoldwebsite.mp4'}></video>
+                <video id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
+                ></video>
+            </WorkItem>
+            <WorkItem
+                project={{
+                    title: 'Is The New York Dream Still Real?',
+                    url: '/work/inydsr',
+                    keywords: 'Data Visualization, Installation, AR',
+                    year: '2017',
+                }}
+                client:idle
+            >
+                <Img
+                    src={import('../images/itnydsr/showcase.jpg')}
+                    alt="INYDSR showcase"
+                />
+            </WorkItem>
+            <WorkItem
+                project={{
+                    title: 'Misc.',
+                    url: '/work/inydsr',
+                    keywords: 'Posters, Typefaces In Progress',
+                    year: '2016 - ???',
+                }}
+                client:idle
+            >
+                <Img
+                    src={import('../images/posters/lordraja_forwebsite.png')}
+                    alt="Lord Raja poster"
+                />
             </WorkItem>
         </ul>
     </div>

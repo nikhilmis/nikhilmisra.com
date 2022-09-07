@@ -1,10 +1,6 @@
 ---
 layout: ../../layouts/Project.astro
 title: Goods
-keywords: Design System, Reader Experience
-year: 2019 - Present
-previewSrc: 'images/goods/goodsmockup.png'
-previewAlt: 'Goods mockup'
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
@@ -15,7 +11,7 @@ import Carousel from '../../components/Carousel.astro';
 
 export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
-<Hero src={import('../../images/goods/goodslogo.png')} />
+<Hero src={import('../../images/goods/goodslogo.png')} alt='Goods logo' />
 <ProjectInfo
     title={frontmatter.title}
     subheading={'Identity, Product Design'}

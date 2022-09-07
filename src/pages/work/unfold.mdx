@@ -1,0 +1,65 @@
+---
+layout: ../../layouts/Project.astro
+title: Unfold
+---
+
+import ProjectInfo from '../../components/ProjectInfo.astro';
+import Hero from '../../components/Hero.astro';
+import Text from '../../components/Text.astro';
+import Img from '../../components/Img.astro';
+import Carousel from '../../components/Carousel.astro';
+
+export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+
+<Hero src={import('/images/unfold/unfoldlogo.png')} alt='Unfold logo' />
+<ProjectInfo
+    title={'Unfold'}
+    subheading={'Identity, Enviromental, Type, Web Design '}
+    duration={'15 Week Project, 2017'}
+>
+    <Text>
+        Unfold is a design conference for a new era of designers. The main theme of Unfold is
+        increasing diversity in the design landscape on a global scale and the designer's
+        ethical role to play in creating diversity. Unfold is being held in The National Design
+        Centre in Singapore. Singapore has an inluence of Chinese, Indian, Malaysian, and
+        British culture. A beautiful enviroment that promotes growth, aesthetics, and of course
+        design. In Collaboration With: Sheila Cheng and Diana Meijia.
+    </Text>
+</ProjectInfo>
+<Img src={import('/images/unfold/typeface.svg')} alt={'A diverse future for all of us.'} />
+<Text
+    >As part of the conference's identity, we designed a typeface based on paper folding.
+</Text>
+<Carousel
+    uniqueTitle={'typeface'}
+    images={[
+        { src: import('/images/unfold/unfoldwebsite1.png'), alt: 'Unfold website' },
+        { src: import('/images/unfold/unfoldwebsite2.png'), alt: 'Unfold website in Chinese' },
+    ]}
+/>
+<Text
+    >The website was designed to feature a language switch from English to Mandarin. Mandarin is
+    the national language of Singapore and we wanted to appeal to the local population as well.
+</Text>
+<!-- Caption not needed as video has no sound -->
+<!-- svelte-ignore a11y-media-has-caption -->
+<video class='video' id='video-style' controls='' width='100%' height='auto'>
+    <source src='/video/unfold/unfoldwebsite.mp4' type='video/mp4' />
+    Your browser does not support the video tag.
+</video>
+<Img src={import('/images/unfold/websitemobile.png')} alt={'Mobile website screenshot'} />
+<Img
+    src={import('/images/unfold/unfoldenviroment.jpg')}
+    alt={'Mockup of Unfold logo in different environments'}
+/>
+<Img
+    src={import('/images/unfold/enviromental4.png')}
+    alt={'Mockup of Unfold logo in different environments'}
+/>
+<Carousel
+    uniqueTitle={'screenshots'}
+    images={[
+        { src: import('/images/unfold/unfoldarchivesplash.png'), alt: 'Unfold splash screen' },
+        { src: import('/images/unfold/unfoldarchive.png'), alt: 'Unfold sign-up page' },
+    ]}
+/>
