@@ -77,3 +77,24 @@ body {
 .blur img {
     filter: blur(3px);
 }
+
+.underlined {
+  position: relative;
+}
+
+.underlined:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 1.8px;
+  width: 100%;
+  background: var(--white);
+}
+
+a.underlined:after {
+  width: 100%;
+  background-color: var(--white);
+}

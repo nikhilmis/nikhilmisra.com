@@ -49,7 +49,7 @@
     <li class='grid'>
         {#each [title, keywords, year] as text}
             <div>
-                <span class='underlined animated-underline'>{text}</span>
+                <span>{text}</span>
             </div>
         {/each}
     </li>
@@ -81,8 +81,8 @@
         opacity: 0.6;
     }
 
-    .grid:hover .underlined.animated-underline:after {
+    /* .grid:hover .underlined.animated-underline:after {
         width: 100%;
         background-color: var(--white);
-    }
+    } */
 </style>
