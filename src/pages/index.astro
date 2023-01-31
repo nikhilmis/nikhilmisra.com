@@ -83,6 +83,7 @@ import WorkItem from '../components/WorkItem.svelte';
                 <Img
                     src={import('../images/goods/goodsmockup.png')}
                     alt="Goods mockup"
+                    className="work-image"
                 />
             </WorkItem>
             <WorkItem
@@ -110,6 +111,7 @@ import WorkItem from '../components/WorkItem.svelte';
                 <Img
                     src={import('../images/itnydsr/showcase.jpg')}
                     alt="INYDSR showcase"
+                    className="work-image"
                 />
             </WorkItem>
             <WorkItem
@@ -124,6 +126,7 @@ import WorkItem from '../components/WorkItem.svelte';
                 <Img
                     src={import('../images/posters/lordraja_forwebsite.png')}
                     alt="Lord Raja poster"
+                    className="work-image"
                 />
             </WorkItem>
         </ul>
@@ -133,7 +136,7 @@ import WorkItem from '../components/WorkItem.svelte';
         body {
             background-color: var(--black);
             color: var(--white);
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .bodyWrapper {
@@ -158,6 +161,8 @@ import WorkItem from '../components/WorkItem.svelte';
             filter: unset;
         }
 
-        
+        .work-image {
+          max-width: 50vw;
+        }
     </style>
 </Layout>

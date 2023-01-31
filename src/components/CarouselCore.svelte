@@ -56,7 +56,7 @@
 	});
 </script>
 
-<div>
+<div class="carousel">
     <a
         class={`clickLayer ${cursorIsNext ? 'nextCursor' : 'prevCursor'}`}
         href={imageAnchor(uniqueTitle, currentImage)}
@@ -70,15 +70,20 @@
 </div>
 
 <style>
-    .clickLayer {
-        display: block;
-    }
+  .carousel {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
 
-    .prevCursor {
-        cursor: url('/prev.svg'), auto;
-    }
+  .clickLayer {
+      display: block;
+  }
 
-    .nextCursor {
-        cursor: url('/next.svg'), auto;
-    }
+  .prevCursor {
+      cursor: url('/prev.svg'), auto;
+  }
+
+  .nextCursor {
+      cursor: url('/next.svg'), auto;
+  }
 </style>
