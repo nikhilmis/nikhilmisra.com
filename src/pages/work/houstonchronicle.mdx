@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/Project.astro
+title: Unfold
+---
+
+import ProjectInfo from '../../components/ProjectInfo.astro';
+import Hero from '../../components/Hero.astro';
+import Text from '../../components/Text.astro';
+import Img from '../../components/Img.astro';
+import Carousel from '../../components/Carousel.astro';
+
+export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+
+<Hero src={import('../../images/unfold/unfoldlogo.png')} alt="Unfold logo" />
+<ProjectInfo
+    title={'Houston Chronicle'}
+    subheading={'Design System, Reader Experience, Product Design '}
+    duration={'2019-2021'}
+>
+    <Text>
+        The Houston Chronicle is the largest newspaper in Texas and fourth
+        largest in the United States. At Hearst Newspapers, I lead the redesign of the Houston Chronicle website and established a new design system
+         to define the Chronicle's digital presence. I also continually designed new article templates, story collections, and  new website features. You can view thes site
+        <a href="https://www.houstonchronicle.com">here</a>
+    </Text>
+</ProjectInfo>
+<Img
+    src={import('../../images/unfold/typeface.png')}
+    alt={'A diverse future for all of us.'}
+    lazy={false}
+/>
+<Text>
+    As part of the conference's identity, we designed a typeface based on paper
+    folding.
+</Text>
+<Carousel
+    uniqueTitle={'typeface'}
+    images={[
+        {
+            src: import('../../images/unfold/unfoldwebsite1.png'),
+            alt: 'Unfold website',
+        },
+        {
+            src: import('../../images/unfold/unfoldwebsite2.png'),
+            alt: 'Unfold website in Chinese',
+        },
+    ]}
+/>
+<Text>
+    The website was designed to feature a language switch from English to
+    Mandarin. Mandarin is the national language of Singapore and we wanted to
+    appeal to the local population as well.
+</Text>
+<video class="video" id="video-style" controls="" width="100%" height="auto">
+    <source src="/video/unfold/unfoldwebsite.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+<Img
+    src={import('../../images/unfold/websitemobile.png')}
+    alt={'Mobile website screenshot'}
+/>
+<Img
+    src={import('../../images/unfold/unfoldenviroment.jpg')}
+    alt={'Mockup of Unfold logo in different environments'}
+/>
+<Img
+    src={import('../../images/unfold/enviromental4.png')}
+    alt={'Mockup of Unfold logo in different environments'}
+/>
+<Carousel
+    uniqueTitle={'screenshots'}
+    images={[
+        {
+            src: import('../../images/unfold/unfoldarchivesplash.png'),
+            alt: 'Unfold splash screen',
+        },
+        {
+            src: import('../../images/unfold/unfoldarchive.png'),
+            alt: 'Unfold sign-up page',
+        },
+    ]}
+/>

@@ -11,39 +11,17 @@ import WorkItem from '../components/WorkItem.svelte';
         <Header client:idle>
             <span slot="bio">
                 <Text>
-                    My name is Nikhil Misra. I'm a designer and artist focusing
-                    on design systems, identities, editorial, interaction, and
-                    interesting ideas.
+                    Nikhil Misra is a designer focusing on interactive, identity, editorial, and typographic projects.
                 </Text>
             </span>
             <span slot="expanded-bio">
-                <Text indented="{true}">
-                    Currently, I am a Product Designer at
-                    <a class="underlined" href="https://www.hearst.com/newspapers"
-                        >Hearst Newspapers</a
-                    >. Previously I was with the very talented people at
-                    <a class="underlined" href="https://oak.is/">Oak Studios</a>. I hold an MPS in
-                    Communication Design from Parsons School of Design and a BFA
-                    in Graphic Design from SUNY Purchase College. I also
-                    participated in the
-                    <a class="underlined" href="http://www.typographysummerschool.org/"
-                        >Typography Summer School</a
-                    >
-                    program in London.
+                <Text indented="{true}">Currently I'm a freelance designer and art director with <a class="underlined" href="https://commercialtype.com/">Commercial Type</a>.
+                    Previously I was at <a class="underlined" href="https://www.hearst.com/newspapers"
+                    >Hearst</a> and <a class="underlined" href="https://oak.is/">Oak Studios</a>. I hold an MPS in Communication Design from Parsons School of Design and a BFA in Graphic Design from SUNY Purchase College.                   
                 </Text>
                 <Text indented="{true}">
-                    You can usually find me taking photos,
-                    <a class="underlined" href="https://www.are.na/nikhil-misra/tracks-for-life"
-                        >music</a
-                    >, or learning something new. These days I spend time
-                    learning generative image making, type design, and making
-                    music.
-                </Text>
-                <Text indented="{true}">
-                    I also spend time thinking about alternative education
-                    models and how to make creative careers more accessible to
-                    BIPOC youth. If you are interested in talking about that,
-                    please reach out.
+                    You can usually find me taking photos of mirrors on the street, digging for tracks, or 
+                    learning something new.These days I spend time learning type design and making music.         
                 </Text>
             </span>
             <span slot="about">
@@ -56,27 +34,114 @@ import WorkItem from '../components/WorkItem.svelte';
                     Designed and developed by me along with
                     <a class="underlined" href="https://github.com/OleSkaar">Ole Skaar</a>.
                 </p>
-                <p>Last Updated: January 12th, 2021</p>
+                <p>Last Updated: March 8, 2023</p>
             </span>
             <span slot="links">
                 <p>(B.1991), raised, and living in New York.</p>
+                <br>
                 <p>Catch me elsewhere:</p>
                 <p>
-                    <a class="underlined" href="/">Email</a>, <a class="underlined" href="/">Instagram</a>, <a
-                        class="underlined" href="/">Are.na</a
+                    <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a class="underlined" href="https://www.instagram.com/nikhilmis/">Instagram</a>, <a
+                        class="underlined" href="https://www.are.na/nikhil-misra">Are.na</a
                     >,
-                    <a class="underlined" href="/">LinkedIn</a>
+                    <a class="underlined" href="https://www.linkedin.com/in/nikhil-misra-41315151/">LinkedIn</a>
                 </p>
             </span>
         </Header>
 
         <ul class="work">
             <WorkItem
+            project={{
+                title: 'Formula',
+                url: '/work/formula',
+                keywords: 'Identity, Fliers, Design System',
+                year: '2023 - Ongoing',
+            }}
+            client:idle
+        >
+            <Img
+                src={import('../images/formula/formula_1.png')}
+                alt="Formula 01"
+                className="work-image"
+            />
+        </WorkItem>
+            <WorkItem
+            project={{
+                title: 'The Food Issue',
+                url: '/work/foodissue',
+                keywords: 'Website, Editorial Design, Art Direction',
+                year: '2021-2022',
+            }}
+            client:idle
+        >
+        <video id={'foodissue'} loop muted src={'/video/foodissue_toc_website.mp4'} ></video>
+         </WorkItem>
+
+        <WorkItem
+        project={{
+            title: 'Misc.',
+            url: '/work/inydsr',
+            keywords: 'Posters, Covers, Art Direction',
+            year: '2016 - Ongoing',
+        }}
+        client:idle
+    >
+        <Img
+            src={import('../images/posters/lordraja_forwebsite.png')}
+            alt="Lord Raja poster"
+            className="work-image"
+        />
+    </WorkItem>
+
+        <WorkItem
+        project={{
+            title: 'Houston Chronicle',
+            url: '/work/houstonchronicle',
+            keywords: 'Design System, Reader Experience, Product Design',
+            year: '2019-2021',
+        }}
+        client:idle
+    >
+        <Img
+            src={import('../images/goods/goodsmockup.png')}
+            alt="Goods mockup"
+        />
+    </WorkItem>
+
+            <WorkItem
+            project={{
+                title: 'Chron',
+                url: '/work/chron',
+                keywords: 'Identity',
+                year: '2020',
+            }}
+            client:idle
+        >
+            <Img
+                src={import('../images/goods/goodsmockup.png')}
+                alt="Goods mockup"
+            />
+        </WorkItem>
+        <WorkItem
+        project={{
+            title: 'Victorian Secret',
+            url: '/work/victoriansecret',
+            keywords: 'Album Art',
+            year: '2019',
+        }}
+        client:idle
+    >
+        <Img
+            src={import('../images/goods/goodsmockup.png')}
+            alt="Goods mockup"
+        />
+    </WorkItem>
+            <WorkItem
                 project={{
                     title: 'Goods',
                     url: '/work/goods',
-                    keywords: 'Design System, Reader Experience',
-                    year: '2019 - Present',
+                    keywords: 'Identity, Product Design, Design System',
+                    year: '2018',
                 }}
                 client:idle
             >
@@ -114,21 +179,7 @@ import WorkItem from '../components/WorkItem.svelte';
                     className="work-image"
                 />
             </WorkItem>
-            <WorkItem
-                project={{
-                    title: 'Misc.',
-                    url: '/work/inydsr',
-                    keywords: 'Posters, Typefaces In Progress',
-                    year: '2016 - ???',
-                }}
-                client:idle
-            >
-                <Img
-                    src={import('../images/posters/lordraja_forwebsite.png')}
-                    alt="Lord Raja poster"
-                    className="work-image"
-                />
-            </WorkItem>
+          
         </ul>
     </div>
 
