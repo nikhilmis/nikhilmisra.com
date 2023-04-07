@@ -17,7 +17,7 @@
 
     let coords = writable({ x: 0, y: 0 });
     const mouseMoveHandler = (e: any) => {
-        coords.set({ x: e.clientX, y: e.clientY });
+        coords.set({ x: e.clientX, y: e.clientY - e.target.offsetTop });
     };
 
     const toggleHover = () => document.querySelector('.work')?.classList.toggle('hover');
@@ -73,12 +73,16 @@
         opacity: 0;
         z-index: -1;
         transition: opacity 300ms;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
         pointer-events: none;
     }
 
     a:hover .preview {
         opacity: 0.6;
+    }
+
+    div, span, li {
+      pointer-events: none;
     }
 
     /* .grid:hover .underlined.animated-underline:after {
