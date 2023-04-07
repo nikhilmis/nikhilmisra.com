@@ -161,7 +161,7 @@ import WorkItem from '../components/WorkItem.svelte';
                 }}
                 client:idle
             >
-                <video id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
+                <video class="work-video" id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
                 ></video>
             </WorkItem>
             <WorkItem
@@ -214,6 +214,10 @@ import WorkItem from '../components/WorkItem.svelte';
 
         .work-image {
           max-width: 50vw;
+        }
+
+        video {
+          max-width: 1100px;
         }
     </style>
 </Layout>
