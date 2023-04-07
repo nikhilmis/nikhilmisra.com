@@ -40,20 +40,20 @@
 
         const anchors = document.querySelectorAll(`a[href*="${title}"]`);
 
-        anchors.forEach(a => a.classList.remove(selectedClass))
+        anchors.forEach((a) => a.classList.remove(selectedClass));
 
         const selectedAnchors = document.querySelectorAll(`a[href="${hash}"]`);
 
-        selectedAnchors.forEach(a => {
+        selectedAnchors.forEach((a) => {
             if (!a.classList.contains('clickLayer')) {
                 a.classList.add(selectedClass);
             }
-        })
-    }
+        });
+    };
 
     onMount(async () => {
-		window.addEventListener("hashchange", setSelectedAnchor)
-	});
+        window.addEventListener('hashchange', setSelectedAnchor);
+    });
 </script>
 
 <div class="carousel">
@@ -70,20 +70,20 @@
 </div>
 
 <style>
-  .carousel {
-    max-width: 1366px;
-    margin: 0 auto;
-  }
+    .carousel {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
 
-  .clickLayer {
-      display: block;
-  }
+    .clickLayer {
+        display: block;
+    }
 
-  .prevCursor {
-      cursor: url('/prev.svg'), auto;
-  }
+    .prevCursor {
+        cursor: url('/prev.svg'), auto;
+    }
 
-  .nextCursor {
-      cursor: url('/next.svg'), auto;
-  }
+    .nextCursor {
+        cursor: url('/next.svg'), auto;
+    }
 </style>

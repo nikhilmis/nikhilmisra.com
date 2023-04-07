@@ -10,21 +10,25 @@
 </script>
 
 <header class="grid">
-  <div class="bio">
-      <slot name="bio" />
-			<div class="expanded-bio" style={expandedBioStyle(isBioExpanded)}>
-				<slot name="expanded-bio" />
-			</div>
-      <button class="animated-underline" aria-expanded={isBioExpanded} on:click={expandBioHandler}>
-          {isBioExpanded ? '(Hide information...)' : '(...More Information)'}
-      </button>
-  </div>
-  <div class="expanded-bio about" style={expandedBioStyle(isBioExpanded)}>
-      <slot name="about" />
-  </div>
-  <div class="links">
-      <slot name="links" />
-  </div>
+    <div class="bio">
+        <slot name="bio" />
+        <div class="expanded-bio" style={expandedBioStyle(isBioExpanded)}>
+            <slot name="expanded-bio" />
+        </div>
+        <button
+            class="animated-underline"
+            aria-expanded={isBioExpanded}
+            on:click={expandBioHandler}
+        >
+            {isBioExpanded ? '(Hide information...)' : '(...More Information)'}
+        </button>
+    </div>
+    <div class="expanded-bio about" style={expandedBioStyle(isBioExpanded)}>
+        <slot name="about" />
+    </div>
+    <div class="links">
+        <slot name="links" />
+    </div>
 </header>
 
 <style>
