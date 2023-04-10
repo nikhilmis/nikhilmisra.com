@@ -11,24 +11,32 @@ import WorkItem from '../components/WorkItem.svelte';
         <Header client:idle>
             <span slot="bio">
                 <Text>
-                    Nikhil Misra is a designer and art director focusing on interactive, identity, editorial, and typographic projects.
+                    Nikhil Misra is a designer focusing on interactive, identity, editorial, and
+                    typographic projects.
                 </Text>
             </span>
             <span slot="expanded-bio">
-                <Text indented="{true}">Currently I'm a freelance designer and art director with <a class="underlined" href="https://commercialtype.com/">Commercial Type</a>.
-                    Previously I was at <a class="underlined" href="https://www.hearst.com/newspapers"
-                    >Hearst</a> and <a class="underlined" href="https://oak.is/">Oak Studios</a>. I hold an MPS in Communication Design from Parsons School of Design and a BFA in Graphic Design from SUNY Purchase College.                   
+                <Text indented="{true}"
+                    >Currently I'm a freelance designer and art director with <a
+                        class="underlined"
+                        href="https://commercialtype.com/">Commercial Type</a
+                    >. Previously I was at <a
+                        class="underlined"
+                        href="https://www.hearst.com/newspapers">Hearst</a
+                    > and <a class="underlined" href="https://oak.is/">Oak Studios</a>. I hold an
+                    MPS in Communication Design from Parsons School of Design and a BFA in Graphic
+                    Design from SUNY Purchase College.
                 </Text>
                 <Text indented="{true}">
-                    You can usually find me taking photos of mirrors on the street, digging for tracks, or 
-                    learning something new. These days I spend time learning type design and music production.         
+                    You can usually find me taking photos of mirrors on the street, digging for
+                    tracks, or learning something new.These days I spend time learning type design
+                    and making music.
                 </Text>
             </span>
             <span slot="about">
                 <p>
                     Typeset in Gerstner Programm by
-                    <a class="underlined" href="https://forgotten-shapes.com/">Forgotten Shapes</a
-                    >.
+                    <a class="underlined" href="https://forgotten-shapes.com/">Forgotten Shapes</a>.
                 </p>
                 <p>
                     Designed and developed by me along with
@@ -38,120 +46,98 @@ import WorkItem from '../components/WorkItem.svelte';
             </span>
             <span slot="links">
                 <p>(B.1991), raised, and living in New York.</p>
-                <br>
+                <br />
                 <p>Catch me elsewhere:</p>
                 <p>
-                    <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a class="underlined" href="https://www.instagram.com/nikhilmis/">Instagram</a>, <a
-                        class="underlined" href="https://www.are.na/nikhil-misra">Are.na</a
-                    >,
-                    <a class="underlined" href="https://www.linkedin.com/in/nikhil-misra-41315151/">LinkedIn</a>
+                    <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a
+                        class="underlined"
+                        href="https://www.instagram.com/nikhilmis/">Instagram</a
+                    >, <a class="underlined" href="https://www.are.na/nikhil-misra">Are.na</a>,
+                    <a class="underlined" href="https://www.linkedin.com/in/nikhil-misra-41315151/"
+                        >LinkedIn</a
+                    >
                 </p>
             </span>
         </Header>
 
         <ul class="work">
             <WorkItem
-            project={{
-                title: 'DBL 2.5',
-                url: '/work/formula',
-                keywords: 'Fliers, Design System',
-                year: '2023 - Ongoing',
-            }}
-            client:idle
-        >
-            <Img
-                src={import('../images/dbl2.5/dbl_1.png')}
-                alt="DBL 2.5 01"
-                className="work-image"
-            />
-        </WorkItem>
+                project={{
+                    title: 'Formula',
+                    url: '/work/formula',
+                    keywords: 'Identity, Fliers, Design System',
+                    year: '2023 - Ongoing',
+                }}
+                client:idle
+            >
+                <Img
+                    src={import('../images/formula/formula_1.png')}
+                    alt="Formula 01"
+                    className="work-image"
+                />
+            </WorkItem>
+            <WorkItem
+                project={{
+                    title: 'The Food Issue',
+                    url: '/work/foodissue',
+                    keywords: 'Website, Editorial Design, Art Direction',
+                    year: '2021-2022',
+                }}
+                client:idle
+            >
+                <video id={'foodissue'} loop muted src={'/video/foodissue_toc_website.mp4'}></video>
+            </WorkItem>
 
             <WorkItem
-            project={{
-                title: 'Formula',
-                url: '/work/formula',
-                keywords: 'Identity, Fliers, Design System',
-                year: '2023 - Ongoing',
-            }}
-            client:idle
-        >
-            <Img
-                src={import('../images/formula/formula_1.png')}
-                alt="Formula 01"
-                className="work-image"
-            />
-        </WorkItem>
-            <WorkItem
-            project={{
-                title: 'The Food Issue',
-                url: '/work/foodissue',
-                keywords: 'Website, Editorial Design, Art Direction',
-                year: '2021-2022',
-            }}
-            client:idle
-        >
-        <video id={'foodissue'} loop muted src={'/video/foodissue_toc_website.mp4'} ></video>
-         </WorkItem>
-
-        <WorkItem
-        project={{
-            title: 'Misc.',
-            url: '/work/inydsr',
-            keywords: 'Posters, Covers, Art Direction',
-            year: '2016 - Ongoing',
-        }}
-        client:idle
-    >
-        <Img
-            src={import('../images/posters/lordraja_forwebsite.png')}
-            alt="Lord Raja poster"
-            className="work-image"
-        />
-    </WorkItem>
-
-        <WorkItem
-        project={{
-            title: 'Houston Chronicle',
-            url: '/work/houstonchronicle',
-            keywords: 'Design System, Reader Experience, Product Design',
-            year: '2019-2021',
-        }}
-        client:idle
-    >
-        <Img
-            src={import('../images/goods/goodsmockup.png')}
-            alt="Goods mockup"
-        />
-    </WorkItem>
+                project={{
+                    title: 'Misc.',
+                    url: '/work/inydsr',
+                    keywords: 'Posters, Covers, Art Direction',
+                    year: '2016 - Ongoing',
+                }}
+                client:idle
+            >
+                <Img
+                    src={import('../images/posters/lordraja_forwebsite.png')}
+                    alt="Lord Raja poster"
+                    className="work-image"
+                />
+            </WorkItem>
 
             <WorkItem
-            project={{
-                title: 'Chron',
-                url: '/work/chron',
-                keywords: 'Identity',
-                year: '2020',
-            }}
-            client:idle
-        >
-            <Img
-                src={import('../images/goods/goodsmockup.png')}
-                alt="Goods mockup"
-            />
-        </WorkItem>
-        <WorkItem
-        project={{
-            title: 'Victorian Secret',
-            url: '/work/victoriansecret',
-            keywords: 'Album Art',
-            year: '2019',
-        }}
-        client:idle
-    >
-        <Img
-            src={import('../images/goods/goodsmockup.png')}
-            alt="Goods mockup"
-        />
-    </WorkItem>
+                project={{
+                    title: 'Houston Chronicle',
+                    url: '/work/houstonchronicle',
+                    keywords: 'Design System, Reader Experience, Product Design',
+                    year: '2019-2021',
+                }}
+                client:idle
+            >
+                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
+            </WorkItem>
+
+            <WorkItem
+                project={{
+                    title: 'Chron',
+                    url: '/work/chron',
+                    keywords: 'Identity',
+                    year: '2020',
+                }}
+                client:idle
+            >
+                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
+            </WorkItem>
+            <WorkItem
+                project={{
+                    title: 'Victorian Secret',
+                    url: '/work/victoriansecret',
+                    keywords: 'Album Art',
+                    year: '2019',
+                }}
+                client:idle
+            >
+                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
+            </WorkItem>
             <WorkItem
                 project={{
                     title: 'Goods',
@@ -177,7 +163,7 @@ import WorkItem from '../components/WorkItem.svelte';
                 }}
                 client:idle
             >
-                <video id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
+                <video class="work-video" id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
                 ></video>
             </WorkItem>
             <WorkItem
@@ -195,7 +181,6 @@ import WorkItem from '../components/WorkItem.svelte';
                     className="work-image"
                 />
             </WorkItem>
-          
         </ul>
     </div>
 
@@ -229,7 +214,11 @@ import WorkItem from '../components/WorkItem.svelte';
         }
 
         .work-image {
-          max-width: 50vw;
+            max-width: 50vw;
+        }
+
+        video {
+            max-width: 1100px;
         }
     </style>
 </Layout>

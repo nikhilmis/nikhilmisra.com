@@ -8,7 +8,7 @@
         url: string;
         videoId?: string;
     }
-    
+
     export let project: Frontmatter;
     const { title, keywords, year, videoId } = project;
 
@@ -17,10 +17,10 @@
 
     let coords = writable({ x: 0, y: 0 });
     const mouseMoveHandler = (e: any) => {
-        coords.set({ x: e.clientX, y: e.clientY });
+        coords.set({ x: e.clientX, y: e.clientY - e.target.offsetTop });
     };
 
-    const toggleHover = () => document.querySelector('.work')?.classList.toggle('hover')
+    const toggleHover = () => document.querySelector('.work')?.classList.toggle('hover');
 
     const onMouseEnter = () => {
         toggleHover();
@@ -28,7 +28,7 @@
         if (getVideo()) {
             getVideo().autoplay = true;
         }
-    }
+    };
 
     const onMouseLeave = () => {
         toggleHover();
@@ -37,7 +37,7 @@
             getVideo().autoplay = false;
             getVideo().currentTime = 0;
         }
-    }
+    };
 </script>
 
 <a
@@ -46,15 +46,15 @@
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
 >
-    <li class='grid'>
+    <li class="grid">
         {#each [title, keywords, year] as text}
             <div>
                 <span>{text}</span>
             </div>
         {/each}
     </li>
-	
-    <div class='preview' style={position($coords.x, $coords.y)}>
+
+    <div class="preview" style={position($coords.x, $coords.y)}>
         <slot />
     </div>
 </a>
@@ -73,12 +73,16 @@
         opacity: 0;
         z-index: -1;
         transition: opacity 300ms;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
         pointer-events: none;
     }
 
     a:hover .preview {
         opacity: 0.6;
+    }
+
+    div, span, li {
+      pointer-events: none;
     }
 
     /* .grid:hover .underlined.animated-underline:after {
