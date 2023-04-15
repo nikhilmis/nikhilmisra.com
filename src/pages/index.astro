@@ -63,7 +63,7 @@ const work = await getCollection('work');
         </Header>
 
         <ul class="work">
-            {work.map((workItem) => <WorkItem workItem={workItem} />)}
+            {work.sort((a, b) => a.data.position - b.data.position).map((workItem) => <WorkItem workItem={workItem} />)}
         </ul>
     </div>
 

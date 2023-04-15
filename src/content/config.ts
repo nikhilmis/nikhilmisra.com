@@ -12,7 +12,8 @@ const workCollection = defineCollection({
         preview: z.object({
           src: z.string(),
           alt: z.string().optional().nullable(),
-        })
+        }),
+        position: z.number(),
     }),
 });
 
