@@ -4,8 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
 import WorkItem from '../components/WorkItem.astro';
+import { getWork } from '../utils/get-work';
 
-const work = await getCollection('work');
+const work = await getWork();
 ---
 
 <Layout title="nikhilmisra.com">
