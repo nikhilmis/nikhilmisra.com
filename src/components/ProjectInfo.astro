@@ -2,7 +2,7 @@
 const { title, subheading, duration } = Astro.props;
 ---
 
-<div class="container">
+<div class={`container${!duration ? ' top-margin' : ''}`}>
     <section class="info">
         {title && <h1>{title}</h1>}
         {subheading && <p>{subheading}</p>}
@@ -23,6 +23,12 @@ const { title, subheading, duration } = Astro.props;
         justify-content: space-between;
         margin-bottom: 80px;
         gap: 25px;
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    .top-margin {
+      margin-top: 100px
     }
 
     @media only screen and (max-width: 600px) {

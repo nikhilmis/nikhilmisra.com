@@ -24,11 +24,10 @@ const selectedClass = 'selected';
     client:load
 >
     <span slot="images">
-        <div>
+        <div class="images">
             {
                 images.map((image, index) => (
                     <Img
-                        className="image"
                         src={image.src}
                         alt={image.alt}
                         id={imageId(uniqueTitle, index)}
@@ -55,13 +54,6 @@ const selectedClass = 'selected';
 </CarouselCore>
 
 <style>
-    div {
-        display: flex;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        overflow: hidden;
-    }
-
     nav {
         display: flex;
         gap: 10px;
@@ -77,8 +69,17 @@ const selectedClass = 'selected';
         color: black;
     }
 
-    .image {
-        width: 100%;
-        flex-shrink: 0;
+    :global(.images > *) {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .images {
+        display: flex;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align: center;
+        scroll-behavior: smooth;
+        overflow: hidden;
+        margin-top: 25px;
     }
 </style>

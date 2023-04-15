@@ -19,8 +19,8 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
 <Hero src={import('../../images/itnydsr/ITNYDSR.jpg')} alt="INYDSR logo" />
 <ProjectInfo
-    title={'Is The New York Dream Still Real?'}
-    subheading={'Data Visualization, Installation, AR'}
+    title={frontmatter.title}
+    subheading={frontmatter.keywords}
     duration={'4 Week Project, 2017'}
 >
     <Text>

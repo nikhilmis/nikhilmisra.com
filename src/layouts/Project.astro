@@ -8,10 +8,22 @@ const { frontmatter } = Astro.props;
     <header>
         <a class="animated-underline" href="/">Nikhil Misra</a>
     </header>
-    
-    <slot />
+
+    <section class="container">
+        <slot />
+    </section>
 
     <Footer />
 
     <link rel="stylesheet" href="/project.css" />
 </Layout>
+
+<style>
+  .container {
+    max-width: 1920px;
+    margin: 25px 25px 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>

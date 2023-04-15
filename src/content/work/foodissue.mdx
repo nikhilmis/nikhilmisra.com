@@ -19,9 +19,9 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
 <Hero src={import('../../images/unfold/unfoldlogo.png')} alt="Unfold logo" />
 <ProjectInfo
-    title={title}
-    subheading={keywords}
-    duration={year}
+    title={frontmatter.title}
+    subheading={frontmatter.keywords}
+    duration={frontmatter.year}
 >
     <Text>
         The Food Issue, a one-off publication designed to show off Commercial Type's extensive range
@@ -57,7 +57,7 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
     national language of Singapore and we wanted to appeal to the local population as well.
 </Text>
 <video class="video" id="video-style" controls="" width="100%" height="auto">
-    <source src="/video/unfold/unfoldwebsite.mp4" type="video/mp4" />
+    <source src="/video/unfoldwebsite.mp4" type="video/mp4" />
     Your browser does not support the video tag.
 </video>
 <Img src={import('../../images/unfold/websitemobile.png')} alt={'Mobile website screenshot'} />
