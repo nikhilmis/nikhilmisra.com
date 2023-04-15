@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
@@ -10,7 +9,7 @@ const work = await getWork();
 ---
 
 <Layout title="nikhilmisra.com">
-    <div class="bodyWrapper">
+    <div class="container">
         <Header client:idle>
             <span slot="bio">
                 <Text>
@@ -64,7 +63,7 @@ const work = await getWork();
         </Header>
 
         <ul class="work">
-            {work.sort((a, b) => a.data.position - b.data.position).map((workItem) => <WorkItem workItem={workItem} />)}
+            {work.map((workItem) => <WorkItem workItem={workItem} />)}
         </ul>
     </div>
 
@@ -75,7 +74,7 @@ const work = await getWork();
             overflow-x: hidden;
         }
 
-        .bodyWrapper {
+        .container {
             padding: 25px;
         }
 
