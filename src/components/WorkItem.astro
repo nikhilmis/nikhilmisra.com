@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import HoverPreview from './HoverPreview.svelte';
+import Img from './Img.astro';
+import { imageRegex, videoRegex } from '../content/config';
+
+interface Props {
+    workItem: CollectionEntry<'work'>;
+}
+
+const { workItem } = Astro.props;
+
+const preview = workItem.data.preview;
+
+const hasPreview = preview.src;
+const previewIsVideo = new RegExp(videoRegex).test(preview.src);
+const previewIsImage = new RegExp(imageRegex).test(preview.src);
+---
+
+<HoverPreview
+    project={{
+        title: workItem.data.title,
+        keywords: workItem.data.keywords,
+        year: workItem.data.year,
+        slug: workItem.slug,
+        isVideo: previewIsVideo,
+    }}
+    client:idle
+>
+    {hasPreview && previewIsVideo && <video id={workItem.slug} src={preview.src} muted />}
+    {
+        hasPreview && previewIsImage && (
+          // Use vite-ignore to avoid warning when using dynamic import
+            <Img src={import(/* @vite-ignore */ preview.src)} alt={preview?.alt ?? workItem.data.title} />
+        )
+    }
+</HoverPreview>

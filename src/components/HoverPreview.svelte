@@ -1,18 +1,16 @@
 <script lang="ts">
     import { writable } from 'svelte/store';
 
-    interface Frontmatter {
+    export let project: {
         title: string;
         keywords: string;
         year: string;
-        url: string;
-        videoId?: string;
-    }
+        slug: string;
+        isVideo: boolean;
+    };
+    const { title, keywords, year, slug, isVideo } = project;
 
-    export let project: Frontmatter;
-    const { title, keywords, year, videoId } = project;
-
-    const getVideo = () => document.querySelector(`#${videoId}`) as HTMLVideoElement;
+    const getVideo = () => document.getElementById(slug) as HTMLVideoElement;
     const position = (x: number, y: number) => `top: ${y}px; left: ${x}px`;
 
     let coords = writable({ x: 0, y: 0 });
@@ -25,7 +23,7 @@
     const onMouseEnter = () => {
         toggleHover();
 
-        if (getVideo()) {
+        if (isVideo) {
             getVideo().autoplay = true;
         }
     };
@@ -33,7 +31,7 @@
     const onMouseLeave = () => {
         toggleHover();
 
-        if (getVideo()) {
+        if (isVideo) {
             getVideo().autoplay = false;
             getVideo().currentTime = 0;
         }
@@ -41,7 +39,7 @@
 </script>
 
 <a
-    href={project.url}
+    href={`/work/${slug}`}
     on:mousemove={mouseMoveHandler}
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
@@ -81,12 +79,9 @@
         opacity: 0.6;
     }
 
-    div, span, li {
-      pointer-events: none;
+    div,
+    span,
+    li {
+        pointer-events: none;
     }
-
-    /* .grid:hover .underlined.animated-underline:after {
-        width: 100%;
-        background-color: var(--white);
-    } */
 </style>

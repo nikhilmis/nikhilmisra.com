@@ -1,6 +1,12 @@
 ---
 layout: ../../layouts/Project.astro
-title: Unfold
+title: The Food Issue
+keywords: Website, Editorial Design, Art Direction
+year: 2021-2022
+preview: {
+  src: '/video/foodissue_toc_website.mp4',
+  alt: null
+}
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
@@ -13,9 +19,9 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
 <Hero src={import('../../images/unfold/unfoldlogo.png')} alt="Unfold logo" />
 <ProjectInfo
-    title={'The Food Issue'}
-    subheading={'Website, Editorial Design, Art Direction'}
-    duration={'2021-2022'}
+    title={title}
+    subheading={keywords}
+    duration={year}
 >
     <Text>
         The Food Issue, a one-off publication designed to show off Commercial Type's extensive range

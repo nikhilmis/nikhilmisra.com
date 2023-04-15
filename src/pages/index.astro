@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
-import Img from '../components/Img.astro';
-import WorkItem from '../components/WorkItem.svelte';
+import WorkItem from '../components/WorkItem.astro';
+
+const work = await getCollection('work');
 ---
 
 <Layout title="nikhilmisra.com">
@@ -11,13 +13,13 @@ import WorkItem from '../components/WorkItem.svelte';
         <Header client:idle>
             <span slot="bio">
                 <Text>
-                    Nikhil Misra is a designer and art director focusing on interactive, identity, editorial, and
-                    typographic projects.
+                    Nikhil Misra is a designer and art director focusing on interactive, identity,
+                    editorial, and typographic projects.
                 </Text>
             </span>
             <span slot="expanded-bio">
-                <Text indented="{true}"
-                    >Currently I'm a freelance designer and art director with <a
+                <Text indented="{true}">
+                    Currently I'm a freelance designer and art director with <a
                         class="underlined"
                         href="https://commercialtype.com/">Commercial Type</a
                     >. Previously I was at <a
@@ -61,128 +63,7 @@ import WorkItem from '../components/WorkItem.svelte';
         </Header>
 
         <ul class="work">
-            <WorkItem
-                project={{
-                    title: 'Formula',
-                    url: '/work/formula',
-                    keywords: 'Identity, Fliers, Design System',
-                    year: '2023 - Ongoing',
-                }}
-                client:idle
-            >
-                <Img
-                    src={import('../images/formula/formula_1.png')}
-                    alt="Formula 01"
-                    className="work-image"
-                />
-            </WorkItem>
-            
-            <WorkItem
-                project={{
-                    title: 'The Food Issue',
-                    url: '/work/foodissue',
-                    keywords: 'Website, Editorial Design, Art Direction',
-                    year: '2021-2022',
-                    videoId: 'foodissue'
-                }}
-                client:idle
-            >
-                <video id={'foodissue'} loop muted src={'/video/foodissue_toc_website.mp4'}></video>
-            </WorkItem>
-
-            <WorkItem
-                project={{
-                    title: 'Misc.',
-                    url: '/work/inydsr',
-                    keywords: 'Posters, Covers, Art Direction',
-                    year: '2016 - Ongoing',
-                }}
-                client:idle
-            >
-                <Img
-                    src={import('../images/posters/lordraja_forwebsite.png')}
-                    alt="Lord Raja poster"
-                    className="work-image"
-                />
-            </WorkItem>
-
-            <WorkItem
-                project={{
-                    title: 'Houston Chronicle',
-                    url: '/work/houstonchronicle',
-                    keywords: 'Design System, Reader Experience, Product Design',
-                    year: '2019-2021',
-                }}
-                client:idle
-            >
-                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
-            </WorkItem>
-
-            <WorkItem
-                project={{
-                    title: 'Chron',
-                    url: '/work/chron',
-                    keywords: 'Identity',
-                    year: '2020',
-                }}
-                client:idle
-            >
-                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
-            </WorkItem>
-            <WorkItem
-                project={{
-                    title: 'Victorian Secret',
-                    url: '/work/victoriansecret',
-                    keywords: 'Album Art',
-                    year: '2019',
-                }}
-                client:idle
-            >
-                <Img src={import('../images/goods/goodsmockup.png')} alt="Goods mockup" />
-            </WorkItem>
-            <WorkItem
-                project={{
-                    title: 'Goods',
-                    url: '/work/goods',
-                    keywords: 'Identity, Product Design, Design System',
-                    year: '2018',
-                }}
-                client:idle
-            >
-                <Img
-                    src={import('../images/goods/goodsmockup.png')}
-                    alt="Goods mockup"
-                    className="work-image"
-                />
-            </WorkItem>
-            <WorkItem
-                project={{
-                    title: 'Unfold',
-                    url: '/work/unfold',
-                    keywords: 'Identity, Design, System',
-                    year: '2018',
-                    videoId: 'unfold',
-                }}
-                client:idle
-            >
-                <video class="work-video" id={'unfold'} loop muted src={'/video/unfoldwebsite.mp4'}
-                ></video>
-            </WorkItem>
-            <WorkItem
-                project={{
-                    title: 'Is The New York Dream Still Real?',
-                    url: '/work/inydsr',
-                    keywords: 'Data Visualization, Installation, AR',
-                    year: '2017',
-                }}
-                client:idle
-            >
-                <Img
-                    src={import('../images/itnydsr/showcase.jpg')}
-                    alt="INYDSR showcase"
-                    className="work-image"
-                />
-            </WorkItem>
+            {work.map((workItem) => <WorkItem workItem={workItem} />)}
         </ul>
     </div>
 

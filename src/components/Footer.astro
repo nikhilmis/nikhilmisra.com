@@ -1,12 +1,14 @@
 ---
-const projects = await Astro.glob('../pages/work/*.mdx');
+import { getCollection } from "astro:content";
+
+const work = await getCollection('work');
 ---
 
 <footer>
     <nav>
         {
-            projects.map((project) => {
-                return <a href={project.url}>{project.frontmatter.title}</a>;
+            work.map((workItem) => {
+                return <a href={`/work/${workItem.slug}`}>{workItem.data.title}</a>;
             })
         }
     </nav>

@@ -19,11 +19,6 @@ header {
     background-color: var(--black);
 }
 
-.blur {
-    text-shadow: var(--blur-text-shadow)
-        rgba(0, 0, 0, var(--blur-text-opacity));
-}
-
 main {
     max-width: 1920px;
     margin: 25px auto 0 auto;
@@ -34,4 +29,8 @@ main {
     main {
         margin: 0 25px;
     }
+}
+
+.blur {
+    text-shadow: var(--blur-text-shadow) rgba(0, 0, 0, var(--blur-text-opacity));
 }
