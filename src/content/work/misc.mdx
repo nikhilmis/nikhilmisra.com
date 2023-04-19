@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/Project.astro
-title: misc
+title: Misc
 keywords: Posters, Covers, Art Direction
 year: 2016 - ongoing
 preview: {
-  src: ../images/posters/lordraja_forwebsite.png,
-  alt: Lord Raja poster
+  src: ../images/posters/akai.png,
+  alt: Mad Space - Mad Moon
 }
 position: 7
 ---
@@ -22,6 +22,7 @@ export const components = { projectInfo: ProjectInfo, p: Text };
         features original photography.
     </Text>
 </ProjectInfo>
+<Img src={import('../../images/posters/akai.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
 <Img src={import('../../images/posters/lordraja.png')} alt={'Lord Raja'} lazy={false} />
 <Img src={import('../../images/posters/kalmarks.png')} alt={'Kal Marks'} />
 <Img src={import('../../images/posters/photay.png')} alt={'Photay'} />
