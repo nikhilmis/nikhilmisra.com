@@ -11,7 +11,6 @@
     "sync": "astro sync"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.16.6",
     "@typescript-eslint/parser": "^5.35.1",
     "astro": "^3.0.5",
     "eslint": "^8.23.0",
@@ -20,8 +19,8 @@
     "prettier-plugin-astro": "^0.8.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.0",
-    "@astrojs/svelte": "^2.1.0",
+    "@astrojs/mdx": "^1.0.0",
+    "@astrojs/svelte": "^4.0.0",
     "sharp": "^0.32.0"
   }
 }

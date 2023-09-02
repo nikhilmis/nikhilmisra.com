@@ -1,8 +1,9 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
 
 export interface Props {
-    src: ImageMetadata | Promise<any>;
+    src: ImageMetadata;
     alt: string;
     className?: string;
     id?: string;
@@ -11,17 +12,45 @@ export interface Props {
 
 const { src, alt, className, id = null, lazy = true } = Astro.props;
 const modifiedClassName = `${className ? className + ' ' : ''}picture`;
+
+const img720 = await getImage({
+    src,
+    width: 720,
+    format: 'webp',
+});
+
+const img1080 = await getImage({
+    src,
+    width: 1080,
+    format: 'webp',
+});
+
+const img1920 = await getImage({
+    src,
+    width: 1920,
+    format: 'webp',
+});
+
+const img3840 = await getImage({
+    src,
+    width: 3840,
+    format: 'webp',
+});
 ---
 
-<Picture
-    id={id}
-    class={modifiedClassName}
-    src={src}
-    alt={alt}
-    widths={[720, 1080, 1920]}
-    sizes="(min-width: 1) 720px, (min-width: 1080px) 1080px, (min-width: 1920px) 1920px, (min-width: 3840px) 3840px 100vw"
-    loading={lazy ? 'lazy' : 'eager'}
-/>
+<picture>
+  <source srcset={img3840.src} media="(min-width: 3840px)" />
+  <source srcset={img1920.src} media="(min-width: 1920px)" />
+  <source srcset={img1080.src} media="(min-width: 1080px)" />
+  <source srcset={img720.src} media="(min-width: 1px)" />
+    <img
+        id={id}
+        src={src.src}
+        alt={alt}
+        class={modifiedClassName}
+        loading={lazy ? 'lazy' : 'eager'}
+    />
+</picture>
 
 <style>
     .picture :global(img) {
