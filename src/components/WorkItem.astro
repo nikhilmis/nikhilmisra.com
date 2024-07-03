@@ -27,11 +27,16 @@ const previewIsImage = new RegExp(imageRegex).test(preview.src);
     }}
     client:idle
 >
-    {hasPreview && previewIsVideo && <video id={workItem.slug} src={preview.src} muted />}
+    {hasPreview && previewIsVideo && <video class="work-image" id={workItem.slug} src={preview.src} muted />}
     {
         hasPreview && previewIsImage && (
           // Use vite-ignore to avoid warning when using dynamic import
-            <Img src={import(/* @vite-ignore */ preview.src)} alt={preview?.alt ?? workItem.data.title} />
+            <Img className="work-image" src={import(/* @vite-ignore */ preview.src)} alt={preview?.alt ?? workItem.data.title} />
         )
     }
+    <style>
+        .work-image {
+            max-width: 60vw;
+        }
+    </style>
 </HoverPreview>
