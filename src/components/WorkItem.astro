@@ -1,20 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import HoverPreview from './HoverPreview.svelte';
-import Img from './Img.astro';
-import { imageRegex, videoRegex } from '../content/config';
+import type { CollectionEntry } from "astro:content";
+import HoverPreview from "./HoverPreview.svelte";
+import Img from "./Img.astro";
+import { imageRegex, videoRegex } from "../content/config";
 
 interface Props {
-    workItem: CollectionEntry<'work'>;
+    workItem: CollectionEntry<"work">;
 }
 
 const { workItem } = Astro.props;
 
-const preview = workItem.data.preview;
-
-const hasPreview = preview.src;
-const previewIsVideo = new RegExp(videoRegex).test(preview.src);
-const previewIsImage = new RegExp(imageRegex).test(preview.src);
+const { preview, previewVideoSrc } = workItem.data;
 ---
 
 <HoverPreview
@@ -23,15 +19,27 @@ const previewIsImage = new RegExp(imageRegex).test(preview.src);
         keywords: workItem.data.keywords,
         year: workItem.data.year,
         slug: workItem.slug,
-        isVideo: previewIsVideo,
+        isVideo: !!previewVideoSrc,
     }}
     client:idle
 >
-    {hasPreview && previewIsVideo && <video class="work-image" id={workItem.slug} src={preview.src} muted />}
     {
-        hasPreview && previewIsImage && (
-          // Use vite-ignore to avoid warning when using dynamic import
-            <Img className="work-image" src={import(/* @vite-ignore */ preview.src)} alt={preview?.alt ?? workItem.data.title} />
+        previewVideoSrc && (
+            <video
+                class="work-image"
+                id={workItem.slug}
+                src={previewVideoSrc}
+                muted
+            />
+        )
+    }
+    {
+        !previewVideoSrc && preview?.src && (
+            <Img
+                className="work-image"
+                src={preview}
+                alt={workItem?.data.previewAlt ?? workItem.data.title}
+            />
         )
     }
     <style>

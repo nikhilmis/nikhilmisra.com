@@ -1,10 +1,9 @@
 import { defineConfig } from 'astro/config';
-import image from '@astrojs/image';
-import mdx from '@astrojs/mdx';
-import svelte from '@astrojs/svelte';
+import svelte from "@astrojs/svelte";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://nikhilmisra.com',
-    integrations: [mdx(), image({ serviceEntryPoint: '@astrojs/image/sharp' }), svelte()],
+  integrations: [svelte(), mdx()]
 });
