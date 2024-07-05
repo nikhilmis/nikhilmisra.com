@@ -15,10 +15,8 @@ import Img from '../../components/Img.astro';
 export const components = { projectInfo: ProjectInfo, p: Text };
 
 <ProjectInfo title={frontmatter.title}>
-    <Text>
-        An ongoing collection of posters that I have done for various events and tours. All work
-        features original photography.
-    </Text>
+    <Text>An ongoing collection of posters that I have done for various events and tours. All work
+        features original photography.</Text>
 </ProjectInfo>
 <Img src={import('../../images/posters/akai.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
 <Img src={import('../../images/posters/chaoscomputer.jpg')} alt={'Chaos Computer'} />
