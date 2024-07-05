@@ -1,11 +1,17 @@
 ---
-const { indented } = Astro.props;
+const { indented, ragger = true } = Astro.props;
 ---
 
 <p class={indented ? 'indented' : ''}>
-    <mechanical-ragger>
-        <slot />
-    </mechanical-ragger>
+    {
+        ragger ? (
+            <mechanical-ragger>
+                <slot />
+            </mechanical-ragger>
+        ) : (
+            <slot />
+        )
+    }
 </p>
 
 <style>
