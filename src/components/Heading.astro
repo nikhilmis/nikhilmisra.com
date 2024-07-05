@@ -1,0 +1,17 @@
+---
+const { text } = Astro.props;
+---
+
+<h2>
+    {text}
+</h2>
+
+<style>
+    h2 {
+        margin: var(--margin-space) 0;
+    }
+
+    h2:first-child {
+        margin-top: 0;
+    }
+</style>
