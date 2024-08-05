@@ -14,7 +14,10 @@ import Img from '../../components/Img.astro';
 
 export const components = { projectInfo: ProjectInfo, p: Text };
 
-<ProjectInfo title={frontmatter.title}>
+<ProjectInfo title={frontmatter.title} 
+    subheading={frontmatter.keywords}
+    duration={'2023–Ongoing'} >
+
     <Text>DBL 2.5 is a party series at Bossa Nova Civic Club in Brooklyn, New York organized by New York City via Tokyo DJ, DJ Healthy. </Text>
 </ProjectInfo>
 <Img src={import('../../images/dbl2.5/DBL.webp')} alt={'DBL 2.5'} lazy={true} />
