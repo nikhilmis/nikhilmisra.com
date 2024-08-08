@@ -1,0 +1,14 @@
+---
+
+export interface Video {
+  src: string;
+}
+
+const { src } = Astro.props
+
+---
+
+<video class="video" id="video-style" width="100%" height="auto" muted autoplay loop>
+  <source src={src} type="video/mp4" />
+  Your browser does not support the video tag.
+</video>

@@ -12,6 +12,7 @@ import Hero from '../../components/Hero.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
+import Video from '../../components/Video.astro';
 
 export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 
@@ -51,10 +52,7 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
 />
 <Text>The website was designed to feature a language switch from English to Mandarin. Mandarin is the
     national language of Singapore and we wanted to appeal to the local population as well.</Text>
-<video class="video" id="video-style" controls="" width="100%" height="auto">
-    <source src="/video/unfoldwebsite.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-</video>
+<Video src='/video/unfoldwebsite.mp4' />
 <Img src={import('../../images/unfold/websitemobile.png')} alt={'Mobile website screenshot'} />
 <Img
     src={import('../../images/unfold/unfoldenviroment.jpg')}
