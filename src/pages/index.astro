@@ -4,6 +4,7 @@ import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
 import WorkItem from '../components/WorkItem.astro';
 import { getWork } from '../utils/get-work';
+import { Content as LastCommit } from './last-commit.md';
 
 const work = await getWork();
 ---
@@ -30,7 +31,7 @@ const work = await getWork();
             <span slot="about">
                 <Text>Typeset in Focal by Greg Gazdowicz at <br /> <a class="underlined" href="https://commercialtype.com/">Commercial Type</a>.</Text>
                 <Text>Designed and developed by me along with <br /> <a class="underlined" href="https://github.com/OleSkaar">Ole Skaar</a>.</Text>
-                <Text>Last Updated: December 2, 2023</p>
+                <LastCommit />
             </span>
             <span slot="links">
                 <p>(b. 1991), raised, and living in New York</p>
