@@ -1,0 +1,7 @@
+#!/bin/bash
+commit_file=last-commit.md
+> $commit_file
+echo Last updated: $(date +"%d %B, %Y") >> $commit_file
+git add $commit_file
+echo "Date added to '$commit_file'"
+exit 0
