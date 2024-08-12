@@ -3,15 +3,17 @@ layout: ../../layouts/Project.astro
 title: Misc
 keywords: Posters, Covers, Art Direction
 year: 2016 - Ongoing
-preview: '../../images/posters/akai.png'
-previewAlt: 'Mad Space - Mad Moon'
+previewVideoSrc: '/video/effervescence.mp4'
+previewAlt: 'Effervescence'
 position: 4
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
+import Video from '../../components/Video.astro';
 import Heading from '../../components/Heading.astro';
+
 
 export const components = { projectInfo: ProjectInfo, p: Text };
 
@@ -21,7 +23,7 @@ export const components = { projectInfo: ProjectInfo, p: Text };
 </ProjectInfo>
 <Img src={import('../../images/posters/akai.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
 <Heading text="Mad Space - Mad Moon (Album Artwork)" />
-
+<Video src='/video/effervescence.mp4' />
 <Img src={import('../../images/posters/sasabil.png')} alt={'Chaos Computer'} />
 <Img src={import('../../images/posters/chaoscomputer.jpg')} alt={'Chaos Computer'} />
 <Img src={import('../../images/posters/Spritz.png')} alt={'Spritz'} lazy={false} />

@@ -9,19 +9,19 @@ position: 5
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
-import Hero from '../../components/Hero.astro';
 import Text from '../../components/Text.astro';
 import Heading from '../../components/Heading.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
 
-export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+export const components = { projectInfo: ProjectInfo, p: Text };
 
-<Hero src={import('../../images/goods/goodslogo.png')} alt="Goods logo" />
 <ProjectInfo
     title={frontmatter.title}
     subheading={frontmatter.keywords}
     duration={'15 weeks'}
+    heroSrc={import('../../images/goods/goodslogo.png')}
+    heroAlt="Goods logo"
 >
     <Text>Goods. is new way to fund non-profit organizations. Goods is. a non-profit marketplace where
         people can buy and sell clothing items. With each item you buy, Goods. takes 10% percent of

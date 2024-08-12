@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
+    import { Image } from 'astro:assets';
 
-const { src, alt, backgroundColor = 'offwhite' } = Astro.props;
+const { src, alt } = Astro.props;
 ---
 
-<div style={`background-color: var(--${backgroundColor})`}>
+<div>
     {src && <Image src={src} alt={alt} />}
 </div>
 
@@ -14,6 +14,7 @@ const { src, alt, backgroundColor = 'offwhite' } = Astro.props;
         padding: 50px 0 50px 0;
         display: flex;
         justify-content: center;
+        background-color: var(--offwhite);
     }
 
     img {

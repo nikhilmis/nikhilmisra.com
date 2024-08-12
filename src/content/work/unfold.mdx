@@ -2,24 +2,25 @@
 layout: ../../layouts/Project.astro
 title: Unfold
 keywords: Identity, Enviromental, Type, Web Design
-year: '2018'
-previewVideoSrc: './video/unfoldwebsite.mp4'
+year: '2017'
+previewVideoSrc: '/video/unfoldwebsite.mp4'
 position: 6
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
-import Hero from '../../components/Hero.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
+import Video from '../../components/Video.astro';
 
-export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+export const components = { rojectInfo: ProjectInfo, p: Text };
 
-<Hero src={import('../../images/unfold/unfoldlogo.png')} alt="Unfold logo" />
 <ProjectInfo
     title={frontmatter.title}
     subheading={frontmatter.keywords}
     duration={'15 Week Project, 2017'}
+    heroSrc={import('../../images/unfold/unfoldlogo.png')}
+    heroAlt="Unfold logo"
 >
     <Text>Unfold is a design conference for a new era of designers. The main theme of Unfold is
         increasing diversity in the design landscape on a global scale and the designer's ethical

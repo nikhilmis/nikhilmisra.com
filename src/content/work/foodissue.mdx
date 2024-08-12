@@ -3,24 +3,25 @@ layout: ../../layouts/Project.astro
 title: The Food Issue
 keywords: Website, Editorial Design, Art Direction
 year: 2021-2022
-previewVideoSrc: './video/foodissue_toc_website.mp4'
+previewVideoSrc: '/video/ctfi/ctfi_desktop_toc.mp4'
 position: 1
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
-import Hero from '../../components/Hero.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
 import Video from '../../components/Video.astro';
+import Heading from '../../components/Heading.astro';
 
-export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
+export const components = { projectInfo: ProjectInfo, p: Text };
 
-<Hero src={import('../../images/unfold/unfoldlogo.png')} alt="Unfold logo" />
 <ProjectInfo
     title={frontmatter.title}
     subheading={frontmatter.keywords}
     duration={frontmatter.year}
+    heroSrc={import('../../images/unfold/unfoldlogo.png')}
+    heroAlt={'Unfold logo'}
 >
     <Text>The Food Issue, a one-off publication designed to show off Commercial Type's extensive range
         of text faces. Type specimens have traditionally functioned as ephemeral objects meant to be
@@ -29,49 +30,10 @@ export const components = { hero: Hero, projectInfo: ProjectInfo, p: Text };
         of articles from writers whose work they admire (as well as the proprietors of a Malaysian
         snack shop around the corner from their office), ranging from short fiction to local news to
         a “listicle,” all loosely threaded together around the theme of eating. You
-        can view the site <a href="https://foodissue.commercialtype.com/">here</a></Text>
+        can view the site <a href="https://foodissue.commercialtype.com/">here.</a>
+        Developed by Daniel Gamage</Text>
 </ProjectInfo>
-<Img
-    src={import('../../images/unfold/typeface.png')}
-    alt={'A diverse future for all of us.'}
-    lazy={true}
-/>
-<Text>As part of the conference's identity, we designed a typeface based on paper folding.</Text>
-<Carousel
-    uniqueTitle={'typeface'}
-    images={[
-        {
-            src: import('../../images/unfold/unfoldwebsite1.png'),
-            alt: 'Unfold website',
-        },
-        {
-            src: import('../../images/unfold/unfoldwebsite2.png'),
-            alt: 'Unfold website in Chinese',
-        },
-    ]}
-/>
-<Text>The website was designed to feature a language switch from English to Mandarin. Mandarin is the
-    national language of Singapore and we wanted to appeal to the local population as well.</Text>
-<Video src='/video/unfoldwebsite.mp4' />
-<Img src={import('../../images/unfold/websitemobile.png')} alt={'Mobile website screenshot'} />
-<Img
-    src={import('../../images/unfold/unfoldenviroment.jpg')}
-    alt={'Mockup of Unfold logo in different environments'}
-/>
-<Img
-    src={import('../../images/unfold/enviromental4.png')}
-    alt={'Mockup of Unfold logo in different environments'}
-/>
-<Carousel
-    uniqueTitle={'screenshots'}
-    images={[
-        {
-            src: import('../../images/unfold/unfoldarchivesplash.png'),
-            alt: 'Unfold splash screen',
-        },
-        {
-            src: import('../../images/unfold/unfoldarchive.png'),
-            alt: 'Unfold sign-up page',
-        },
-    ]}
-/>
+<Video src='/video/ctfi/ctfi_desktop_toc.mp4' />
+<Video src='/video/ctfi/ctfi_rosner_scroll.mp4' />
+<Video src='/video/ctfi/ctfi_desktop_article.mp4' />
+
