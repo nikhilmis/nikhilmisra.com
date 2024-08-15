@@ -1,4 +1,4 @@
-name: Github Pages Astro CI
+name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `master` branch
@@ -18,13 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Checkout LFS objects
-        run: git lfs checkout          
+        uses: actions/checkout@v4
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses: withastro/action@v2
 
   deploy:
     needs: build
@@ -35,4 +31,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
