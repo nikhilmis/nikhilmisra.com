@@ -1,12 +1,13 @@
 ---
 export interface Video {
     src: string;
+    portrait?: boolean;
 }
 
-const { src } = Astro.props;
+const { src, portrait = false } = Astro.props;
 ---
 
-<video class="video" id="video-style" width="100%" height="auto" muted autoplay loop>
+<video class=`video${portrait ? ' portrait' : ''}` id="video-style" width="100%" height="auto" muted autoplay loop>
     <source src={src} type="video/mp4" />
     Your browser does not support the video tag.
 </video>
@@ -14,5 +15,15 @@ const { src } = Astro.props;
 <style>
     .video {
         margin: var(--margin-space) 0;
+    }
+
+    @media only screen and (min-width: 1000px) {
+      .video {
+        max-width: var(--landscape-media-width);
+      }
+
+      .video.portrait {
+        max-width: var(--portrait-media-width);
+      }
     }
 </style>

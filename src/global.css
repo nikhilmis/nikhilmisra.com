@@ -53,6 +53,8 @@ body {
     --blur-text-shadow: 0 0 5px;
     --blur-text-opacity: 0.5;
     --margin-space: 22px;
+    --landscape-media-width: 75%;
+    --portrait-media-width: 50%;
 }
 
 /* Blur effect */

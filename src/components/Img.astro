@@ -7,10 +7,11 @@ export interface Props {
     className?: string;
     id?: string;
     lazy?: boolean;
+    portrait?: boolean;
 }
 
-const { src, alt, className, id = null, lazy = true } = Astro.props;
-const modifiedClassName = `${className ? className + ' ' : ''}picture`;
+const { src, alt, className, id = null, lazy = true, portrait = false } = Astro.props;
+const modifiedClassName = `${className ? className + ' ' : ''}${portrait ? ' portrait ' : ''}picture`;
 ---
 
 <Picture
@@ -25,11 +26,23 @@ const modifiedClassName = `${className ? className + ' ' : ''}picture`;
 
 <style>
     .picture {
-        margin: var(--margin-space) 0;
+        margin: var(--margin-space) auto;
     }
 
     .picture :global(img) {
         width: 100%;
         object-fit: contain;
+    }
+
+    @media only screen and (min-width: 1000px) {
+      .picture {
+        max-width: var(--landscape-media-width);
+        display: flex;
+        justify-content: center;
+      }
+
+      .picture.portrait {
+        max-width: var(--portrait-media-width);
+      }
     }
 </style>
