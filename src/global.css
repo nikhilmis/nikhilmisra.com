@@ -55,6 +55,8 @@ body {
     --margin-space: 22px;
     --landscape-media-width: 75%;
     --portrait-media-width: 50%;
+    --body-margin: 50px;
+    --body-margin-mobile: 25px;
 }
 
 /* Blur effect */

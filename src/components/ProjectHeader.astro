@@ -12,11 +12,12 @@ import HoverName from './HoverName.svelte';
 <style>
     header {
         display: flex;
+        padding: var(--body-margin-mobile);
     }
 
     .title {
         display: block;
-        padding: 25px;
+        
     }
 
     .title .hover-image {
@@ -25,5 +26,11 @@ import HoverName from './HoverName.svelte';
 
     .spacer {
         flex-basis: 10;
+    }
+
+    @media only screen and (min-width: 1000px) {
+      header {
+        padding: var(--body-margin);
+      }
     }
 </style>

@@ -18,10 +18,16 @@ const { frontmatter } = Astro.props;
 </Layout>
 
 <style>
-  .container {
-    margin: 25px 25px 0 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .container {
+        margin: var(--body-margin-mobile) var(--body-margin-mobile) 0 var(--body-margin-mobile);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .container {
+            margin: var(--body-margin) var(--body-margin) 0 var(--body-margin);
+        }
+    }
 </style>

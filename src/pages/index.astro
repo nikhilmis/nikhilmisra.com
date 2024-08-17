@@ -14,24 +14,42 @@ const work = await getWork();
     <div class="container">
         <Header client:idle>
             <span slot="bio">
-                <Text><HoverName client:idle /> is an interactive and graphic designer focusing on design systems, editorial, and typographic projects.</Text>
+                <Text
+                    ><HoverName client:idle /> is an interactive and graphic designer focusing on design
+                    systems, editorial, and typographic projects.</Text
+                >
             </span>
             <span slot="expanded-bio">
                 <Text indented="{true}">
                     Currently I'm a freelance designer and art director with <a
                         class="underlined"
-                        href="https://commercialtype.com/">Commercial Type</a>. Previously I was at <a class="underlined"
-                        href="https://www.hearst.com/newspapers">Hearst</a> and <a class="underlined" href="https://oak.is/">Oak Studios</a>. 
-                        I hold an MPS in Communication Design from Parsons School of Design and a BFA in Graphic Design from SUNY Purchase College.
+                        href="https://commercialtype.com/">Commercial Type</a
+                    >. Previously I was at <a
+                        class="underlined"
+                        href="https://www.hearst.com/newspapers">Hearst</a
+                    > and <a class="underlined" href="https://oak.is/">Oak Studios</a>. I hold an
+                    MPS in Communication Design from Parsons School of Design and a BFA in Graphic
+                    Design from SUNY Purchase College.
                 </Text>
                 <Text indented="{true}">
-                    You can usually find me taking photos of mirrors on the street, <a class="underlined" href="https://www.nts.live/shows/sonika/episodes/sonika-7th-march-2022npm">digging for music</a>, or learning something new. These days I spend time learning type design
-                    and music production.
+                    You can usually find me taking photos of mirrors on the street, <a
+                        class="underlined"
+                        href="https://www.nts.live/shows/sonika/episodes/sonika-7th-march-2022npm"
+                        >digging for music</a
+                    >, or learning something new. These days I spend time learning type design and
+                    music production.
                 </Text>
             </span>
             <span slot="about">
-                <Text>Typeset in Focal by Greg Gazdowicz at <br /> <a class="underlined" href="https://commercialtype.com/">Commercial Type</a>.</Text>
-                <Text>Designed and developed by me along with <br /> <a class="underlined" href="https://github.com/OleSkaar">Ole Skaar</a>.</Text>
+                <Text
+                    >Typeset in Focal by Greg Gazdowicz at <br />
+                    <a class="underlined" href="https://commercialtype.com/">Commercial Type</a
+                    >.</Text
+                >
+                <Text
+                    >Designed and developed by me along with <br />
+                    <a class="underlined" href="https://github.com/OleSkaar">Ole Skaar</a>.</Text
+                >
                 <LastCommit />
             </span>
             <span slot="links">
@@ -55,7 +73,6 @@ const work = await getWork();
             {work.map((workItem) => <WorkItem workItem={workItem} />)}
         </ul>
     </div>
-
     <style>
         body {
             background-color: var(--black);
@@ -64,7 +81,7 @@ const work = await getWork();
         }
 
         .container {
-            padding: 25px;
+            margin: var(--body-margin-mobile) var(--body-margin-mobile) 0 var(--body-margin-mobile);
         }
 
         .work {
@@ -90,16 +107,20 @@ const work = await getWork();
         }
 
         @media only screen and (min-width: 1000px) {
-          .contact-info {
-            width: fit-content;
-            margin-left: auto;
-          }
+            .container {
+                margin: var(--body-margin) var(--body-margin) 0 var(--body-margin);
+            }
 
-        .other-spaces {
-            display: inline-block;
-            width: 100%;
-            text-align: left;
-          }
+            .contact-info {
+                width: fit-content;
+                margin-left: auto;
+            }
+
+            .other-spaces {
+                display: inline-block;
+                width: 100%;
+                text-align: left;
+            }
         }
     </style>
 </Layout>
