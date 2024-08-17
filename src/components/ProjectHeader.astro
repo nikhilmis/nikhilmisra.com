@@ -1,0 +1,29 @@
+---
+import HoverName from './HoverName.svelte';
+---
+
+<header>
+    <div class="title">
+        <HoverName invert client:idle />
+    </div>
+    <div class="spacer"></div>
+</header>
+
+<style>
+    header {
+        display: flex;
+    }
+
+    .title {
+        display: block;
+        padding: 25px;
+    }
+
+    .title .hover-image {
+      filter: invert(1) !important;
+    }
+
+    .spacer {
+        flex-basis: 10;
+    }
+</style>

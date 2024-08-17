@@ -5,6 +5,7 @@ import Text from '../components/Text.astro';
 import WorkItem from '../components/WorkItem.astro';
 import { getWork } from '../utils/get-work';
 import { Content as LastCommit } from './last-commit.md';
+import HoverName from '../components/HoverName.svelte';
 
 const work = await getWork();
 ---
@@ -13,7 +14,7 @@ const work = await getWork();
     <div class="container">
         <Header client:idle>
             <span slot="bio">
-                <Text>Nikhil Misra is an interactive and graphic designer focusing on design systems, editorial, and typographic projects.</Text>
+                <Text><HoverName client:idle /> is an interactive and graphic designer focusing on design systems, editorial, and typographic projects.</Text>
             </span>
             <span slot="expanded-bio">
                 <Text indented="{true}">
