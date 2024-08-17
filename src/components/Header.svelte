@@ -52,13 +52,13 @@
         transition: max-height var(--expand-transition), opacity var(--expand-transition);
     }
 
-    @media only screen and (min-width: 960px) {
+    @media only screen and (min-width: 1000px) {
         :global(.grid > *:last-child) {
             text-align: right;
         }
     }
 
-    @media only screen and (min-width: 0px) and (max-width: 960px) {
+    @media only screen and (min-width: 0px) and (max-width: 1000px) {
         :global(.grid) {
             gap: 0;
         }

@@ -36,7 +36,8 @@ const work = await getWork();
             <span slot="links">
                 <p>(b. 1991), raised, and living in New York</p>
                 <br />
-                <p>Other Spaces:
+                <p class="contact-info">
+                    <span class="other-spaces">Other Spaces:</span>
                     <br />
                     <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a
                         class="underlined"
@@ -85,6 +86,19 @@ const work = await getWork();
 
         video {
             max-width: 1100px;
+        }
+
+        @media only screen and (min-width: 1000px) {
+          .contact-info {
+            width: fit-content;
+            margin-left: auto;
+          }
+
+        .other-spaces {
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+          }
         }
     </style>
 </Layout>
