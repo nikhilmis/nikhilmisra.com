@@ -31,7 +31,7 @@
 <img
     class={`hover-image${hovering ? ' hover' : ''}${invert ? ' invert' : ''}`}
     style={position($coords.x, $coords.y)}
-    src="/favicon.png"
+    src="/nikhil.jpg"
     alt="Me"
 />
 
