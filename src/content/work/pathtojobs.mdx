@@ -1,0 +1,36 @@
+---
+layout: ../../layouts/Project.astro
+title: Path To Jobs
+keywords: Identity, Brand Strategy
+year: "2023"
+previewVideoSrc: '/video/ctfi/ctfi_desktop_toc.mp4'
+position: 1
+---
+
+import ProjectInfo from '../../components/ProjectInfo.astro';
+import Text from '../../components/Text.astro';
+import Img from '../../components/Img.astro';
+import Carousel from '../../components/Carousel.astro';
+import Video from '../../components/Video.astro';
+
+export const components = { projectInfo: ProjectInfo, p: Text };
+
+<ProjectInfo
+    title={frontmatter.title}
+    subheading={frontmatter.keywords}
+    duration={frontmatter.year}
+>
+    <Text>The Food Issue, a one-off publication designed to show off Commercial Type's extensive range
+        of text faces. Type specimens have traditionally functioned as ephemeral objects meant to be
+        looked at rather than read; with this project, Commercial Type wanted to try something a
+        little different. Working with editor Caren Litherland, we commissioned six different types
+        of articles from writers whose work they admire (as well as the proprietors of a Malaysian
+        snack shop around the corner from their office), ranging from short fiction to local news to
+        a “listicle,” all loosely threaded together around the theme of eating. You
+        can view the site <a class="underlined" href="https://foodissue.commercialtype.com/">here.</a>
+        Developed by Daniel Gamage</Text>
+</ProjectInfo>
+<Video src='/video/pathtojobs/ptj_wide.mp4' />
+<Video src='/video/ctfi/ctfi_rosner_scroll.mp4' />
+<Video src='/video/ctfi/ctfi_desktop_article.mp4' />
+
