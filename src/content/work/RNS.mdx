@@ -1,0 +1,39 @@
+---
+layout: ../../layouts/Project.astro
+title: RNS
+keywords: Website, Editorial Design, Art Direction
+year: 2023 - Ongoing
+previewVideoSrc: '/video/rns/rns_frame.mp4'
+position: 1
+---
+
+import ProjectInfo from '../../components/ProjectInfo.astro';
+import Text from '../../components/Text.astro';
+import Img from '../../components/Img.astro';
+import Carousel from '../../components/Carousel.astro';
+import Video from '../../components/Video.astro';
+
+export const components = { projectInfo: ProjectInfo, p: Text };
+
+<ProjectInfo
+    title={frontmatter.title}
+    subheading={frontmatter.keywords}
+    duration={frontmatter.year}
+>
+    <Text>
+    Religion News Service (RNS) is a nonprofit news organization that provides coverage of religion, spirituality, and faith-based issues. It reports on a wide range of religious topics, including Christian, Muslim, Jewish, Hindu, and other faith traditions, along with secular issues affecting religion in society. RNS offers news, analysis, and commentary to a diverse audience, including journalists, scholars, and the general public. Its mission is to deliver accurate, balanced, and insightful reporting on religion in a global and multicultural context. I worked with Commercial Type to redesign RNS’s identity and website for the organization.
+</Text>
+</ProjectInfo>
+<Video src='/video/rns/rns_logo_animation.mp4' />
+<Video src='/video/rns/rns_website_animation.mp4' />
+<Video src='/video/rns/rns_topic.mp4' />
+<Video src='/video/rns/rns_modules.mp4' />
+<Img src={import('../../images/rns/rns_websiteoverview.png')} alt={'Website Overview'} />
+<Img src={import('../../images/rns/rns_social.png')} alt={'Social'} />
+<Img src={import('../../images/rns/rns_billboard.png')} alt={'Billboard'} />
+<Img src={import('../../images/rns/rns_pin.png')} alt={'Pin'} />
+<Img src={import('../../images/rns/rns_tote.jpg')} alt={'Tote'} />
+
+
+
+
