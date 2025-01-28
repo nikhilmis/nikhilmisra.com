@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={`${frontmatter.title} | nikhilmisra.com`}>
-    <ProjectHeader client:idle />
+    <ProjectHeader />
 
     <section class="container">
         <slot />
