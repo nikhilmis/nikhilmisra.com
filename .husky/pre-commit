@@ -1,5 +1,5 @@
 #!/bin/bash
-commit_file=last-commit.md
+commit_file=src/last-commit.md
 > $commit_file
 echo Last updated: $(date +"%B %d, %Y") >> $commit_file
 git add $commit_file
