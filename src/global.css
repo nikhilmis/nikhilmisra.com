@@ -33,9 +33,9 @@ img {
 
 @font-face {
     font-family: 'Focal';
-    src: url('./../fonts/Focal-Regular.otf');
-    src: url('./../fonts/Focal-Regular.woff');
-    src: url('./../fonts/Focal-Regular.woff2');
+    src: url('/fonts/Focal-Regular.otf');
+    src: url('/fonts/Focal-Regular.woff');
+    src: url('/fonts/Focal-Regular.woff2');
 }
 
 body {

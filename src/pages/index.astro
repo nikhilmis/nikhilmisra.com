@@ -4,7 +4,7 @@ import Header from '../components/Header.svelte';
 import Text from '../components/Text.astro';
 import WorkItem from '../components/WorkItem.astro';
 import { getWork } from '../utils/get-work';
-// import { Content as LastCommit } from './last-commit.md';
+import { Content as LastCommit } from './last-commit.md';
 import HoverName from '../components/HoverName.svelte';
 
 const work = await getWork();
@@ -50,7 +50,7 @@ const work = await getWork();
                     >Designed and developed by me along with <br />
                     <a class="underlined" href="https://github.com/OleSkaar">Ole Skaar</a>.</Text
                 >
-                <!-- <LastCommit /> -->
+                <LastCommit />
             </span>
             <span slot="links">
                 <p>(b. 1991), raised, and living in New York</p>
