@@ -1,83 +1,89 @@
 *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-    all: unset;
-    display: revert;
+  all: unset;
+  display: revert;
 }
 
 /* Preferred box-sizing value */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Reapply the pointer cursor for anchor tags */
 a,
 button {
-    cursor: revert;
+  cursor: revert;
 }
 
 /* Remove list styles (bullets/numbers) */
 ol,
 ul,
 menu {
-    list-style: none;
+  list-style: none;
 }
 
 /* For images to not be able to exceed their container */
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Global styles */
 
 @font-face {
-    font-family: 'Focal';
-    src: url('/fonts/Focal-Regular.otf');
-    src: url('/fonts/Focal-Regular.woff');
-    src: url('/fonts/Focal-Regular.woff2');
+  font-family: 'Focal';
+  src: url('/fonts/Focal-Regular.otf');
+  src: url('/fonts/Focal-Regular.woff');
+  src: url('/fonts/Focal-Regular.woff2');
 }
 
 body {
-    font-family: 'Focal', sans-serif;
-    font-size: 22px;
-    line-height: 28px;
-    letter-spacing: 0.2px;
+  font-family: 'Focal', sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+      font-size: 22px;
+  }
 }
 
 /* Global variables */
 :root {
-    --black: #000;
-    --white: #fff;
-    --offwhite: #f1f1f1;
-    --blur-text-shadow: 0 0 5px;
-    --blur-text-opacity: 0.5;
-    --margin-space: 22px;
-    --landscape-media-width: 75%;
-    --portrait-media-width: 50%;
-    --body-margin: 50px;
-    --body-margin-mobile: 25px;
+  --black: #000;
+  --white: #fff;
+  --offwhite: #f1f1f1;
+  --blur-text-shadow: 0 0 5px;
+  --blur-text-opacity: 0.5;
+  --margin-space: 22px;
+  --landscape-media-width: 75%;
+  --portrait-media-width: 50%;
+  --body-margin: 50px;
+  --body-margin-mobile: 25px;
 }
 
 /* Blur effect */
 ::selection {
-    color: var(--black);
-    background-color: var(--white);
+  color: var(--black);
+  background-color: var(--white);
 }
 
 .blur {
-    color: transparent;
-    text-shadow: var(--blur-text-shadow) rgba(255, 255, 255, var(--blur-text-opacity));
+  color: transparent;
+  text-shadow: var(--blur-text-shadow) rgba(255, 255, 255, var(--blur-text-opacity));
 }
 
 .blur a,
 .blur * a {
-    color: transparent;
+  color: transparent;
 }
 
 .blur ::after,
 .blur img {
-    filter: blur(3px);
+  filter: blur(3px);
 }
 
 .underlined {
