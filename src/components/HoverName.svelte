@@ -24,7 +24,7 @@
     on:mousemove={mouseMoveHandler}
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
-    class="name"
+    class="name underlined"
     href="/"
     >Nikhil Misra
 </a>
