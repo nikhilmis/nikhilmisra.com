@@ -3,9 +3,10 @@ import SelectionBlurrer from '../components/SelectionBlurrer.svelte';
 
 export interface Props {
     title: string;
+    hideOverflow?: boolean;
 }
 
-const { title } = Astro.props;
+const { hideOverflow, title } = Astro.props;
 
 import '../global.css';
 ---
@@ -19,7 +20,7 @@ import '../global.css';
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body>
+    <body class=`${hideOverflow ? 'hideOverflow' : ''}`>
       <main>
         <slot />
         <SelectionBlurrer client:idle />
@@ -30,3 +31,11 @@ import '../global.css';
         ></script>
     </body>
 </html>
+
+<style>
+  @media only screen and (min-width: 1000px) {
+      .hideOverflow {
+          overflow-y: hidden;
+      }
+    }
+</style>
