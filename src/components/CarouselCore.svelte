@@ -1,89 +1,120 @@
 <script lang="ts">
-    import { writable } from 'svelte/store';
-    import { onMount } from 'svelte';
-    import { imageAnchor } from '../utils/link-handling';
+  import { writable } from "svelte/store";
 
-    export let images: number;
-    export let uniqueTitle: string;
-    export let selectedClass: string;
+  export let numberOfImages: number;
 
-    const lastImage = images - 1;
+  let carouselWidth = 0;
+  let scrollLeft = 0;
+  let currentImage = 0;
+  let cursorIsNext = false;
+  let carouselContainer: HTMLDivElement;
+  let coords = writable({ x: 0 });
 
-    let currentImage = 0;
-    let carouselWidth = 0;
-    let cursorIsNext = false;
-    let coords = writable({ x: 0 });
+  coords.subscribe((value) => {
+      cursorIsNext = value.x > carouselWidth / 2;
+  });
 
-    coords.subscribe((value) => {
-        cursorIsNext = value.x > carouselWidth / 2;
-    });
+  const mouseMoveHandler = (e: MouseEvent) => {
+    coords.set({ x: e.clientX - carouselContainer.getBoundingClientRect().x })
+  };
 
-    const mouseMoveHandler = (e: any) => coords.set({ x: e.clientX });
+  const nextImage = () => {
+    const currentImageIsLast = currentImage === numberOfImages - 1;
 
-    const nextImage = () => {
-        currentImage === lastImage ? (currentImage = 0) : (currentImage += 1);
-    };
+    if (currentImageIsLast) {
+      scrollLeft = 0;
+      currentImage = 0;
+    } else {
+      scrollLeft += carouselWidth;
+      currentImage++;
+    }
 
-    const prevImage = () => {
-        currentImage === 0 ? (currentImage = lastImage) : (currentImage -= 1);
-    };
+    scroll()
+  };
 
-    const setSelectedAnchor = () => {
-        const { hash } = window.location;
-        const [title, imageNumber] = hash.split('-');
+  const prevImage = () => {
+    const currentImageIsFirst = currentImage === 0;
 
-        if (!title.includes(uniqueTitle)) {
-            return;
-        }
+    if (currentImageIsFirst) {
+      const lastImageIndex = numberOfImages - 1;
+      scrollLeft = lastImageIndex * carouselWidth;
+      currentImage = lastImageIndex;
+    } else {
+      scrollLeft -= carouselWidth;
+      currentImage -= 1;
+    }
 
-        currentImage = parseFloat(imageNumber);
+    scroll();
+  }
 
-        const anchors = document.querySelectorAll(`a[href*="${title}"]`);
+  const scroll = () => {
+    const imageContainer = document.querySelector('.images');
 
-        anchors.forEach((a) => a.classList.remove(selectedClass));
+    if (!imageContainer) {
+      return null;
+    }
 
-        const selectedAnchors = document.querySelectorAll(`a[href="${hash}"]`);
+    imageContainer.scrollLeft = scrollLeft;
+  }
 
-        selectedAnchors.forEach((a) => {
-            if (!a.classList.contains('clickLayer')) {
-                a.classList.add(selectedClass);
-            }
-        });
-    };
+  const goToImage = (image: number) => {
+    currentImage = image;
+    scrollLeft = image * carouselWidth;
 
-    onMount(async () => {
-        window.addEventListener('hashchange', setSelectedAnchor);
-    });
+    scroll();
+  }
 </script>
 
-<div class="carousel">
-    <a
-        class={`clickLayer ${cursorIsNext ? 'nextCursor' : 'prevCursor'}`}
-        href={imageAnchor(uniqueTitle, currentImage)}
-        bind:clientWidth={carouselWidth}
-        on:mousemove={mouseMoveHandler}
-        on:click={cursorIsNext ? nextImage : prevImage}
-    >
-        <slot name="images" />
-    </a>
-    <slot name="anchors" />
+<div 
+  class="carousel"
+  bind:this={carouselContainer}
+>
+  <button 
+    class={cursorIsNext ? 'nextCursor' : 'prevCursor'}
+    bind:clientWidth={carouselWidth}
+    on:click={cursorIsNext ? nextImage : prevImage}
+    on:mousemove={mouseMoveHandler}
+  >
+    <slot name="images" />
+  </button>
+
+  <div class="dots">
+    {#each {length: numberOfImages} as _, i}
+      <button 
+        on:click={() => goToImage(i)} 
+        class={`dot${i === currentImage ? ' selected' : ''}`}
+      >•</button>
+    {/each}
+  </div>
 </div>
 
 <style>
-    .carousel {
-        max-width: 1080px;
-        margin: 0 auto;
-    }
+  .dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
 
-    .clickLayer {
-        display: block;
-    }
+  .dot {
+    font-size: 48px;
+    color: grey;
+    cursor: pointer;
+  }
 
-    .prevCursor {
-        cursor: url('/prev.svg'), auto;
-    }
+  .dot.selected {
+    color: black;
+  }
+  
+  .carousel {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
 
-    .nextCursor {
-        cursor: url('/next.svg'), auto;
-    }
+  .prevCursor {
+    cursor: url('/prev.svg'), auto;
+  }
+
+  .nextCursor {
+    cursor: url('/next.svg'), auto;
+  }
 </style>
