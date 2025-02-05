@@ -38,6 +38,10 @@ img {
   src: url('/fonts/Focal-Regular.woff2');
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: 'Focal', sans-serif;
   font-size: 18px;
