@@ -63,6 +63,7 @@
         margin: 25px 0;
         padding: 15px 0;
         position: relative;
+        overflow: hidden;
     }
 
     a .preview {
@@ -73,6 +74,10 @@
         transition: opacity 300ms;
         transform: translate(-50%, -50%);
         pointer-events: none;
+    }
+
+    a:hover {
+      overflow: visible;
     }
 
     a:hover .preview {
