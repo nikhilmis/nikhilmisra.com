@@ -91,7 +91,7 @@
 <style>
   .dots {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
   }
 
