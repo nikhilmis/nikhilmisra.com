@@ -43,7 +43,7 @@
     }
 
     header button {
-        margin-top: 35px;
+        margin-top: 5px;
         cursor: pointer;
     }
 

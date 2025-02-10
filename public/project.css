@@ -29,12 +29,3 @@ video {
 .blur {
     text-shadow: var(--blur-text-shadow) rgba(0, 0, 0, var(--blur-text-opacity));
 }
-
-.underlined:after {
-  background: var(--black);
-}
-
-a.underlined:after {
-  width: 100%;
-  background-color: var(--black);
-}
