@@ -56,6 +56,11 @@
         :global(.grid > *:last-child) {
             text-align: right;
         }
+
+        .links {
+            margin-bottom: 0;
+            margin-left: auto;
+        }
     }
 
     @media only screen and (min-width: 0px) and (max-width: 1000px) {
@@ -73,10 +78,6 @@
 
         .about {
             display: none;
-        }
-
-        .links {
-            margin-bottom: 0;
         }
     }
 </style>

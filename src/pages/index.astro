@@ -55,17 +55,17 @@ const work = await getWork();
             <span slot="links">
                 <p>(b. 1991), raised, and living in New York</p>
                 <br />
-                <p class="contact-info">
-                    <span class="other-spaces">Other Spaces:</span>
-                    <br />
-                    <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a
-                        class="underlined"
-                        href="https://www.instagram.com/nikhilmis/">Instagram</a
-                    >, <a class="underlined" href="https://www.are.na/nikhil-misra">Are.na</a>,
-                    <a class="underlined" href="https://www.linkedin.com/in/nikhil-misra-41315151/"
-                        >LinkedIn</a
-                    >
-                </p>
+                <div class="other-spaces">
+                <span>Other Spaces:</span>
+                <br />
+                <a class="underlined" href="mailto:hello@nikhilmisra.com">Email</a>, <a
+                    class="underlined"
+                    href="https://www.instagram.com/nikhilmis/">Instagram</a
+                >, <a class="underlined" href="https://www.are.na/nikhil-misra">Are.na</a>,
+                <a class="underlined" href="https://www.linkedin.com/in/nikhil-misra-41315151/"
+                    >LinkedIn</a
+                >
+              </div>
             </span>
         </Header>
 
@@ -109,11 +109,6 @@ const work = await getWork();
         @media only screen and (min-width: 1000px) {
             .container {
                 margin: var(--body-margin) var(--body-margin) 0 var(--body-margin);
-            }
-
-            .contact-info {
-                width: fit-content;
-                margin-left: auto;
             }
 
             .other-spaces {
