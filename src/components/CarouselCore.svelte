@@ -1,119 +1,124 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
+    import { writable } from 'svelte/store';
 
-  export let numberOfImages: number;
+    export let numberOfImages: number;
 
-  let carouselWidth = 0;
-  let scrollLeft = 0;
-  let currentImage = 0;
-  let cursorIsNext = false;
-  let carouselContainer: HTMLDivElement;
-  let coords = writable({ x: 0 });
+    let carouselWidth = 0;
+    let scrollLeft = 0;
+    let currentImage = 0;
+    let cursorIsNext = false;
+    let carouselContainer: HTMLDivElement;
+    let coords = writable({ x: 0 });
 
-  coords.subscribe((value) => {
-      cursorIsNext = value.x > carouselWidth / 2;
-  });
+    coords.subscribe((value) => {
+        cursorIsNext = value.x > carouselWidth / 2;
+    });
 
-  const mouseMoveHandler = (e: MouseEvent) => {
-    coords.set({ x: e.clientX - carouselContainer.getBoundingClientRect().x })
-  };
+    const mouseMoveHandler = (e: MouseEvent) => {
+        coords.set({ x: e.clientX - carouselContainer.getBoundingClientRect().x });
+    };
 
-  const nextImage = () => {
-    const currentImageIsLast = currentImage === numberOfImages - 1;
+    const nextImage = () => {
+        const currentImageIsLast = currentImage === numberOfImages - 1;
 
-    if (currentImageIsLast) {
-      scrollLeft = 0;
-      currentImage = 0;
-    } else {
-      scrollLeft += carouselWidth;
-      currentImage++;
-    }
+        if (currentImageIsLast) {
+            scrollLeft = 0;
+            currentImage = 0;
+        } else {
+            scrollLeft += carouselWidth;
+            currentImage++;
+        }
 
-    scroll()
-  };
+        scroll();
+    };
 
-  const prevImage = () => {
-    const currentImageIsFirst = currentImage === 0;
+    const prevImage = () => {
+        const currentImageIsFirst = currentImage === 0;
 
-    if (currentImageIsFirst) {
-      const lastImageIndex = numberOfImages - 1;
-      scrollLeft = lastImageIndex * carouselWidth;
-      currentImage = lastImageIndex;
-    } else {
-      scrollLeft -= carouselWidth;
-      currentImage -= 1;
-    }
+        if (currentImageIsFirst) {
+            const lastImageIndex = numberOfImages - 1;
+            scrollLeft = lastImageIndex * carouselWidth;
+            currentImage = lastImageIndex;
+        } else {
+            scrollLeft -= carouselWidth;
+            currentImage -= 1;
+        }
 
-    scroll();
-  }
+        scroll();
+    };
 
-  const scroll = () => {
-    const imageContainer = document.querySelector('.images');
+    const scroll = () => {
+        const imageContainer = document.querySelector('.images');
 
-    if (!imageContainer) {
-      return null;
-    }
+        if (!imageContainer) {
+            return null;
+        }
 
-    imageContainer.scrollLeft = scrollLeft;
-  }
+        imageContainer.scrollLeft = scrollLeft;
+    };
 
-  const goToImage = (image: number) => {
-    currentImage = image;
-    scrollLeft = image * carouselWidth;
+    const goToImage = (image: number) => {
+        currentImage = image;
+        scrollLeft = image * carouselWidth;
 
-    scroll();
-  }
+        scroll();
+    };
 </script>
 
-<div 
-  class="carousel"
-  bind:this={carouselContainer}
->
-  <button 
-    class={cursorIsNext ? 'nextCursor' : 'prevCursor'}
-    bind:clientWidth={carouselWidth}
-    on:click={cursorIsNext ? nextImage : prevImage}
-    on:mousemove={mouseMoveHandler}
-  >
-    <slot name="images" />
-  </button>
+<div class="carousel" bind:this={carouselContainer}>
+    <button
+        class={cursorIsNext ? 'nextCursor' : 'prevCursor'}
+        bind:clientWidth={carouselWidth}
+        on:click={cursorIsNext ? nextImage : prevImage}
+        on:mousemove={mouseMoveHandler}
+    >
+        <slot name="images" />
+    </button>
 
-  <div class="dots">
-    {#each {length: numberOfImages} as _, i}
-      <button 
-        on:click={() => goToImage(i)} 
-        class={`dot${i === currentImage ? ' selected' : ''}`}
-      >•</button>
-    {/each}
-  </div>
+    <div class="dots">
+        {#each { length: numberOfImages } as _, i}
+            <button
+                on:click={() => goToImage(i)}
+                class={`dotButton${i === currentImage ? ' selected' : ''}`}>
+              <span class="dot">
+            </button>
+        {/each}
+    </div>
 </div>
 
 <style>
-  .dots {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-  }
+    .dots {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
 
-  .dot {
-    font-size: 48px;
-    color: grey;
-    cursor: pointer;
-  }
+    .dotButton {
+      cursor: pointer;
+      padding: 10px 5px;
+    }
 
-  .dot.selected {
-    color: black;
-  }
-  
-  .carousel {
-    margin: 0 auto;
-  }
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: grey;
+        display: block;
+    }
 
-  .prevCursor {
-    cursor: url('/prev.svg'), auto;
-  }
+    .selected .dot {
+      background-color: black;
+    }
 
-  .nextCursor {
-    cursor: url('/next.svg'), auto;
-  }
+    .carousel {
+        margin: 0 auto;
+    }
+
+    .prevCursor {
+        cursor: url('/prev.svg'), auto;
+    }
+
+    .nextCursor {
+        cursor: url('/next.svg'), auto;
+    }
 </style>
