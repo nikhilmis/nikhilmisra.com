@@ -5,7 +5,7 @@ keywords: Data Visualization, Installation, AR
 year: '2017'
 preview: '../../images/itnydsr/showcase.jpg'
 previewAlt: 'INYSDR showcase'
-position: 7
+position: 8
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
@@ -25,19 +25,16 @@ export const components = { projectInfo: ProjectInfo, p: Text };
 Developed as part of a Data Visualization exhibition at Parsons School of Design, this project invites reflection on the evolving role of sanctuary cities in supporting refugees.</Text>
 </ProjectInfo>
 <Img src={import('../../images/itnydsr/showcase.jpg')} alt={'Showcase'} lazy={false} />
-<Img
-    src={import('../../images/itnydsr/graph.gif')}
-    alt={'Graph showing the annual decrease of refugees in NYC from 2002 to 2016.'}
-/>
+<Img src={import('../../images/itnydsr/graph.webp')} alt={'Graph showing the annual decrease of refugees in NYC from 2002 to 2016.'}/>
 <Text>The line graph before participants filled it out and with the data from the US State Department.</Text>
 <Carousel
     uniqueTitle={'demo'}
     images={[
         { src: import('../../images/itnydsr/drawing.jpg'), alt: 'Drawing' },
         { src: import('../../images/itnydsr/demoreveal1.jpg'), alt: 'Demo reveal' },
-        { src: import('../../images/itnydsr/drawing3.jpg'), alt: 'Drawing' },
-        { src: import('../../images/itnydsr/demoreveal2.jpg'), alt: 'Demo reveal' },
         { src: import('../../images/itnydsr/discussion.jpg'), alt: 'Discussion' },
+        { src: import('../../images/itnydsr/drawing2.jpg'), alt: 'Drawing' },
+        { src: import('../../images/itnydsr/demoreveal2.jpg'), alt: 'Demo reveal' },
         { src: import('../../images/itnydsr/discussion2.jpg'), alt: 'Discussion' },
     ]}
 />

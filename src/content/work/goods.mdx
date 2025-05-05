@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/Project.astro
-title: Goods
+title: 'Goods.'
 keywords: Identity, Product Design, Design System
 year: '2018'
-preview: '../../images/goods/goodsmockup.png'
+preview: '../../images/goods/goodsfull.png'
 previewAlt: 'Good mockup'
-position: 7
+position: 6
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
@@ -26,11 +26,7 @@ export const components = { projectInfo: ProjectInfo, p: Text };
     <Text>Goods is a non-profit marketplace where people can buy and sell clothing items. With every purchase, Goods donates 10% of the proceeds to a selected non-profit partner. By partnering with different organizations every 2-3 months, Goods ensures a diverse and far-reaching social impact.
 Shop sustainably, support a cause, and make a difference—all in one place.</Text>
 </ProjectInfo>
-<Img
-    src={import('../../images/goods/goodsfull.png')}
-    alt="Screenshot of the Goods. website"
-    lazy={false}
-/>
+<Img src={import('../../images/goods/goodsfull.png')} alt="Screenshot of the Goods. website"lazy={true}/>
 <Carousel
     uniqueTitle={'process'}
     images={[
@@ -40,7 +36,26 @@ Shop sustainably, support a cause, and make a difference—all in one place.</Te
     ]}
 />
 <Heading text="Research" />
-<Text>The project started out with two ideas of reselling clothing and creating a service for social impact.
-    I wanted to see if I could merge these two worlds together. I started my research by talking to various
-    people who have sold clothing on the internet. I also did field observations by going to various
-    reselling clothing stores and fashion events in New York City.</Text>
+<Text> What started as two separate ideas—reselling clothing and building something with real social impact—quickly turned into a challenge 
+I couldn’t ignore: could I bring these two worlds together? To find out, I dove into conversations with seasoned online sellers and 
+wandered through New York City's resale shops and fashion events, gathering stories, insights, and inspiration from every corner.</Text>
+
+<Carousel
+    uniqueTitle={'prototyping'}
+    images={[
+        { src: import('../../images/goods/sketchesgoods.jpg'), alt: 'sketches' },
+        { src: import('../../images/goods/lofi.png'), alt: 'lofi' },
+        { src: import('../../images/goods/midfi.png'), alt: 'In the field.' },
+    ]}
+/>
+<Heading text="Prototyping" />
+<Text> After completing my research, I began iterating through multiple rounds of wireframing and prototyping. The product evolved continuously, with changes made at every stage based on new insights and feedback.</Text>
+<Img src={import('../../images/goods/homepage.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+<Img src={import('../../images/goods/sellingflow.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+<Text> The selling feature was built to keep things simple and stress-free. Whether you're a streetwear veteran flipping rare drops or just clearing out your closet for the first time, Goods makes it easy for anyone to jump in and start selling—no experience needed.</Text>
+<Img src={import('../../images/goods/goodsnav.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+<Img src={import('../../images/goods/checkout.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+<Img src={import('../../images/goods/sellingflow.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+<Text>The standout feature of Goods is the option to donate a portion of your purchase to one of our partner organizations. At checkout, users can browse through our current partners, learn about their missions, and choose exactly where their donation goes—making every purchase a chance to give back.</Text>
+<Img src={import('../../images/goods/goodsmobile.png')} alt="Screenshot of the Goods. website"lazy={true}/>
+

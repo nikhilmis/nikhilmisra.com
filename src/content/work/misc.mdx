@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Project.astro
-title: Misc
+title: Misc.
 keywords: Posters, Covers, Art Direction
 year: 2016 - Ongoing
 previewVideoSrc: '/video/effervescence.mp4'
@@ -18,25 +18,24 @@ import Heading from '../../components/Heading.astro';
 export const components = { projectInfo: ProjectInfo, p: Text };
 
 <ProjectInfo title={frontmatter.title}>
-    <Text>An ongoing collection of posters that I have done for various events and tours. All work
-        features original photography.</Text>
+    <Text>A collection of artwork and fliers. All work features original photography.</Text>
 </ProjectInfo>
 
-<Img src={import('../../images/posters/akai.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
+<Img src={import('../../images/posters/akai_placed.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
 <Heading text="Mad Space - Mad Moon (Back Cover), Painting By Omari Douglin, 2022" />
 <Video src='/video/effervescence.mp4' portrait={true} />
 <Heading text="Effervescence, 2023" />
-<Img src={import('../../images/posters/sustainchallenger.png')} alt={'Sustain Challenger'} />
-<Heading text="Sustain Challenger at Sustain Release 2024" />
+<Img src={import('../../images/posters/sustainchallenger.png')} alt={'Sustain Challenger'} portrait={false} />
+<Heading text="Sustain Challenger at Sustain-Release, 2024" />
 <Img src={import('../../images/posters/aliend.webp')} alt={'Alien D'} />
 <Heading text="Alien D - Spiritual World, Cassette Artwork, 2023" t/>
 <Img src={import('../../images/posters/chaoscomputer.jpg')} alt={'Chaos Computer'} />
 <Heading text="Chaos Computer, 2022" />
+<Img src={import('../../images/posters/sasabil.png')} alt={'Chaos Computer'}portrait={false} />
+<Heading text="Sasabil, 2023" />
 <Img src={import('../../images/posters/victoriansecret.webp')} alt={'Alien D'} />
 <Heading text="Victorian Secret, Cassette Artwork, 2018" />
-<Img src={import('../../images/posters/sasabil.png')} alt={'Chaos Computer'} />
-<Heading text="Sasabil, 2023" />
-<Img src={import('../../images/posters/Spritz.png')} alt={'Spritz'} lazy={false} />
+<Img src={import('../../images/posters/Spritz.png')} alt={'Spritz'} portrait={false} />
 <Heading text="Spritz, 2022" />
-<Img src={import('../../images/posters/kalmarks.jpg')} alt={'Kal Marks'} />
+<Img src={import('../../images/posters/kalmarks.jpg')} alt={'Kal Marks'}portrait={false} />
 <Heading text="The Glove, 2019" />

@@ -3,9 +3,9 @@ layout: ../../layouts/Project.astro
 title: Houston Chronicle
 keywords: Design System, Editorial Product Design
 year: '2019 - 2021'
-preview: '../../images/houstonchronicle/homepage2021.png'
+previewVideoSrc: '/video/hc/hc_homepage.mp4'
 previewAlt: 'Houston Chronicle Homepage'
-position: 6
+position: 5
 ---
 
 import ProjectInfo from '../../components/ProjectInfo.astro';
@@ -27,21 +27,19 @@ export const components = { projectInfo: ProjectInfo, p: Text };
         continually designed new article templates, story collections, and new website features. You
         can view thes site <a class="underlined" href="https://www.houstonchronicle.com">here</a></Text>
 </ProjectInfo>
-<Img src={import('../../images/houstonchronicle/homepage2021.png')} alt={'Houston Chronicle Homepage'} lazy={false}/>
-<Text>As part of the conference's identity, we designed a typeface based on paper folding.</Text>
-<Carousel
-    uniqueTitle={'typeface'}
-    images={[
-        {
-            src: import('../../images/unfold/unfoldwebsite1.png'),
-            alt: 'Unfold website',
-        },
-        {
-            src: import('../../images/unfold/unfoldwebsite2.png'),
-            alt: 'Unfold website in Chinese',
-        },
-    ]}
-/>
+<Img src={import('../../images/houstonchronicle/homepage2021.svg')} alt={'Houston Chronicle Homepage'} lazy={false}/>
+<Video src='/video/hc/hc_homepage.mp4' />
+<Img src={import('../../images/houstonchronicle/hc_homepage.svg')} alt={'Houston Chronicle Homepage'} lazy={false}/>
+<Video src='/video/hc/hc_article.mp4' />
+<Img src={import('../../images/houstonchronicle/hc_article.svg')} alt={'Houston Chronicle Homepage'} lazy={false}/>
+<Img src={import('../../images/houstonchronicle/hc_opinion.svg')} alt={'Houston Chronicle Homepage'} lazy={false}/>
+<Video src='/video/hc/hc_therundown.mp4' />
+<Img src={import('../../images/houstonchronicle/hc_rundown.svg')} alt={'Houston Chronicle Rundown'} lazy={false}/>
+
+
+
+<Text>.</Text>
+
 
 
 
