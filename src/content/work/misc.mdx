@@ -17,7 +17,11 @@ import Heading from '../../components/Heading.astro';
 
 export const components = { projectInfo: ProjectInfo, p: Text };
 
-<ProjectInfo title={frontmatter.title}>
+<ProjectInfo 
+  title={frontmatter.title} 
+  subheading={frontmatter.keywords}
+  duration={frontmatter.year}
+>
     <Text>A collection of artwork and fliers. All work features original photography.</Text>
 </ProjectInfo>
 
