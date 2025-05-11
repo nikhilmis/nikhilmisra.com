@@ -13,6 +13,7 @@ const workCollection = defineCollection({
         previewVideoSrc: z.string().optional().nullable(),
         previewAlt: z.string().optional(),
         position: z.number(),
+        hidden: z.boolean().optional(),
     }),
 });
 

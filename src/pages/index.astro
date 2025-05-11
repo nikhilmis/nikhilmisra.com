@@ -70,7 +70,7 @@ const work = await getWork();
         </Header>
 
         <ul class="work">
-            {work.map((workItem) => <WorkItem workItem={workItem} />)}
+            {work.filter((workItem) => !workItem.data.hidden).map((workItem) => <WorkItem workItem={workItem} />)}
         </ul>
     </div>
     <style>

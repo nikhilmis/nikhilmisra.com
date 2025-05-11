@@ -7,7 +7,7 @@ const work = await getWork();
 <footer>
     <nav>
         {
-            work.map((workItem) => {
+            work.filter((workItem) => !workItem.data.hidden).map((workItem) => {
                 return <a href={`/work/${workItem.slug}`}>{workItem.data.title}</a>;
             })
         }
