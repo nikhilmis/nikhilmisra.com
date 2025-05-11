@@ -13,6 +13,8 @@ import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
 import Video from '../../components/Video.astro';
+import Caption from '../../components/Caption.astro';
+
 
 export const components = { projectInfo: ProjectInfo, p: Text };
 
@@ -38,7 +40,6 @@ export const components = { projectInfo: ProjectInfo, p: Text };
 <Video src='/video/hc/hc_therundown.mp4' />
 <Img src={import('../../images/houstonchronicle/hc_rundown.svg')} alt={'Houston Chronicle Rundown'} lazy={false}/>
  <Caption>Houston Chronicle Rundown which featured the top news of the day</Caption>
-
 <Img src={import('../../images/houstonchronicle/hc_mobile.svg')} alt={'Houston Chronicle Mobile'} lazy={false}/>
 
 
