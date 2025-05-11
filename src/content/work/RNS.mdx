@@ -11,6 +11,7 @@ import ProjectInfo from '../../components/ProjectInfo.astro';
 import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Carousel from '../../components/Carousel.astro';
+import Caption from '../../components/Caption.astro';
 import Video from '../../components/Video.astro';
 
 export const components = { projectInfo: ProjectInfo, p: Text };
@@ -28,16 +29,16 @@ export const components = { projectInfo: ProjectInfo, p: Text };
 <Img src={import('../../images/rns/rns_header.svg')} alt={'header'} />
 <Video src='/video/rns/rns_website_animation.mp4' />
 <Img src={import('../../images/rns/rns_homepage_full.svg')} alt={'Subsection'} />
-<Text>Homepage</Text>
+<Caption>Homepage</Caption>
 <Video src='/video/rns/rns_modules.mp4' />
-<Text>Sitewide Modules</Text>
+<Caption>Sitewide Modules</Caption>
 <Video src='/video/rns/rns_article.mp4' />
 <Img src={import('../../images/rns/rns_article.svg')} alt={'Subsection'} />
- <Text>Article</Text>
+ <Caption>Article</Caption>
 <Img src={import('../../images/rns/rns_midway_01.svg')} alt={'Subsection'} />
- <Text>Subsection</Text>
+ <Caption>Subsection</Caption>
 <Img src={import('../../images/rns/rns_website-mobile.svg')} alt={'Subsection'} />
- <Text>Mobile</Text>
+ <Caption>Mobile</Caption>
 <Img src={import('../../images/rns/rns_comps_posts.jpg')} alt={'Social'} />
 <Img src={import('../../images/rns/rns_tote.jpg')} alt={'Tote'} />
 <Img src={import('../../images/rns/rns_billboard.png')} alt={'Tote'} />
