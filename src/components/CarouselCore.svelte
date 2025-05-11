@@ -96,7 +96,7 @@
 
     .dotButton {
       cursor: pointer;
-      padding: 10px 5px;
+      padding: 5px;
     }
 
     .dot {
@@ -112,7 +112,7 @@
     }
 
     .carousel {
-        margin: 0 auto;
+        margin: 0 auto var(--margin-space) auto;
     }
 
     .prevCursor {
