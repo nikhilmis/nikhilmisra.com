@@ -92,6 +92,8 @@
         display: flex;
         gap: 10px;
         justify-content: center;
+        /* Compensate for margin on elements inside carousel */
+        margin-top: calc(-1 *var(--margin-space)/2);
     }
 
     .dotButton {
