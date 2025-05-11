@@ -71,7 +71,6 @@
         position: absolute;
         opacity: 0;
         z-index: -1;
-        transition: opacity 300ms;
         transform: translate(-50%, -50%);
         pointer-events: none;
     }
