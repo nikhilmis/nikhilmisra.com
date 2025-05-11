@@ -1,7 +1,7 @@
 ---
 import CarouselCore from './CarouselCore.svelte';
 import Img from './Img.astro';
-import { imageId, imageAnchor } from '../utils/link-handling';
+import { imageId } from '../utils/link-handling';
 
 interface Image {
     src: ImageMetadata;
@@ -16,9 +16,9 @@ export interface Props {
 const { uniqueTitle, images } = Astro.props;
 ---
 
-<CarouselCore numberOfImages={images.length} client:load>
+<CarouselCore numberOfImages={images.length} containerId={uniqueTitle} client:load>
   <span slot="images">
-    <div class="images">
+    <div class="images" id={uniqueTitle}>
         {
             images.map((image, index) => (
                 <Img

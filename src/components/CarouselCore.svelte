@@ -2,6 +2,7 @@
     import { writable } from 'svelte/store';
 
     export let numberOfImages: number;
+    export let containerId: string;
 
     let carouselWidth = 0;
     let scrollLeft = 0;
@@ -48,7 +49,7 @@
     };
 
     const scroll = () => {
-        const imageContainer = document.querySelector('.images');
+        const imageContainer = document.getElementById(containerId);
 
         if (!imageContainer) {
             return null;
