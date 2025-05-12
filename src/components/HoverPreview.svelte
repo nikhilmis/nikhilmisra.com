@@ -24,7 +24,7 @@
         toggleHover();
 
         if (isVideo) {
-            getVideo().autoplay = true;
+            getVideo().play();
         }
     };
 
@@ -32,7 +32,7 @@
         toggleHover();
 
         if (isVideo) {
-            getVideo().autoplay = false;
+            getVideo().pause();
             getVideo().currentTime = 0;
         }
     };
