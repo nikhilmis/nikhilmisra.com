@@ -66,6 +66,10 @@
         overflow: hidden;
     }
 
+    a .preview {
+      display: none;
+    }
+
     a:hover {
       overflow: visible;
     }
@@ -82,6 +86,7 @@
 
     @media only screen and (min-width: 600px) {
       a .preview {
+        display: block;
         width: 1100px;
         position: absolute;
         opacity: 0;
