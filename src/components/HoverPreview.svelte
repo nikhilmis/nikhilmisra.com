@@ -66,15 +66,6 @@
         overflow: hidden;
     }
 
-    a .preview {
-        width: 1100px;
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-    }
-
     a:hover {
       overflow: visible;
     }
@@ -87,5 +78,16 @@
     span,
     li {
         pointer-events: none;
+    }
+
+    @media only screen and (min-width: 600px) {
+      a .preview {
+        width: 1100px;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
     }
 </style>
