@@ -13,6 +13,7 @@ import Text from '../../components/Text.astro';
 import Img from '../../components/Img.astro';
 import Video from '../../components/Video.astro';
 import Heading from '../../components/Heading.astro';
+import Caption from '../../components/Caption.astro';
 
 
 export const components = { projectInfo: ProjectInfo, p: Text };
@@ -26,20 +27,20 @@ export const components = { projectInfo: ProjectInfo, p: Text };
 </ProjectInfo>
 
 <Img src={import('../../images/posters/akai_placed.png')} alt={'Mad Space - Mad Moon'} lazy={false} />
-<Heading text="Mad Space - Mad Moon (Back Cover), Painting By Omari Douglin, 2022" />
+ <Caption><a class="underlined" href="https://akaisolo.bandcamp.com/album/mad-moon-mad-space">Mad Space - Mad Moon</a> (Back Cover), Painting By Omari Douglin, 2022</Caption>
 <Video src='/video/effervescence.mp4' portrait={true} />
-<Heading text="Effervescence, 2023" />
+ <Caption>Effervescence, 2023</Caption>
 <Img src={import('../../images/posters/sustainchallenger.png')} alt={'Sustain Challenger'} portrait={false} />
-<Heading text="Sustain Challenger at Sustain-Release, 2024" />
+ <Caption>Sustain Challenger at Sustain-Release, 2024</Caption>
 <Img src={import('../../images/posters/aliend.webp')} alt={'Alien D'} />
-<Heading text="Alien D - Spiritual World, Cassette Artwork, 2023" t/>
+ <Caption><a class="underlined" href="https://lillernetapes.bandcamp.com/album/spiritual-world">Alien D - Spiritual World,</a> Cassette Artwork, 2023</Caption>
 <Img src={import('../../images/posters/chaoscomputer.jpg')} alt={'Chaos Computer'} />
-<Heading text="Chaos Computer, 2022" />
+ <Caption>Chaos Computer, 2022</Caption>
 <Img src={import('../../images/posters/sasabil.png')} alt={'Chaos Computer'}portrait={false} />
-<Heading text="Sasabil, 2023" />
+ <Caption>Sasabil, 2023</Caption>
 <Img src={import('../../images/posters/victoriansecret.webp')} alt={'Alien D'} />
-<Heading text="Victorian Secret, Cassette Artwork, 2018" />
+ <Caption>Victorian Secret, Cassette Artwork, 2018</Caption>
 <Img src={import('../../images/posters/Spritz.png')} alt={'Spritz'} portrait={false} />
-<Heading text="Spritz, 2022" />
+ <Caption>Spritz, 2022</Caption>
 <Img src={import('../../images/posters/kalmarks.jpg')} alt={'Kal Marks'}portrait={false} />
-<Heading text="The Glove, 2019" />
+ <Caption>The Glove, 2019</Caption>
