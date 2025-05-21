@@ -39,7 +39,7 @@
     }
 
     header {
-        --expand-transition: 0.25s cubic-bezier(0.36, 0, 0.66, -0.56);
+        --expand-transition: 0.5s cubic-bezier(0.36, 0, 0.66, -0.56);
     }
 
     header button {
