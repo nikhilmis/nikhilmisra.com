@@ -21,13 +21,18 @@ import '../global.css';
         <title>{title}</title>
     </head>
     <body>
-      <main>
-        <slot />
-        <SelectionBlurrer client:idle />
-      </main>
+        <main>
+            <slot />
+            <SelectionBlurrer client:idle />
+        </main>
         <script
             is:inline
             src="https://unpkg.com/@oakstudios/mechanical-ragger@0.5.0/web-component-auto-register.js"
         ></script>
+        <script
+            is:inline
+            data-goatcounter="https://tandooriflesh.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"></script>
     </body>
 </html>
